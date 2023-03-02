@@ -8,13 +8,17 @@ class WeatherScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Weather'),
-      ),
       body: Container(
         child: BlocProvider(
           create: (context) => WeatherBloc(),
-          child: Container(),
+          child: Container(
+            child: const Center(
+              child: Text(
+                'Weather Screen',
+                style: TextStyle(fontSize: 40.0),
+              ),
+            ),
+          ),
         ),
       ),
     );
