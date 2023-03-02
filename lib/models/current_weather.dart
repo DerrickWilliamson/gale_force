@@ -1,7 +1,9 @@
-import 'package:flutter/material.dart';
-import 'package:equatable/equatable.dart';
+import 'package:json_annotation/json_annotation.dart';
 
-class CurrentWeather extends Equatable {
+part 'current_weather.g.dart';
+
+@JsonSerializable()
+class CurrentWeather {
   final String description;
   final double temp;
   final double windSpeed;
@@ -12,6 +14,8 @@ class CurrentWeather extends Equatable {
     required this.windSpeed,
   });
 
-  @override
-  List<Object?> get props => throw UnimplementedError();
+  factory CurrentWeather.fromJson(Map<String, dynamic> json) =>
+      _$CurrentWeatherFromJson(json);
+
+  Map<String, dynamic> toJson() => _$CurrentWeatherToJson(this);
 }
