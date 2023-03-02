@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gale_force/views/screens/weather_screen.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 void main() {
@@ -11,6 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -26,7 +28,7 @@ class MyApp extends StatelessWidget {
           const ResponsiveBreakpoint.resize(1000, name: DESKTOP),
         ],
       ),
-      home: Container(),
+      home: WeatherScreen(),
     );
   }
 }
