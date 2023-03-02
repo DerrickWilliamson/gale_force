@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:gale_force/models/current_weather.dart';
 
 part 'weather_event.dart';
 part 'weather_state.dart';
