@@ -13,22 +13,22 @@ class LocationScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text(
-                'Enter Your Location',
-                style: TextStyle(
-                  fontSize: 40.0,
-                  color: Colors.white,
-                ),
+              const SizedBox(height: 20.0),
+              const Icon(
+                Icons.location_pin,
+                size: 150.0,
+                color: Colors.white,
               ),
+              const SizedBox(height: 40.0),
               Padding(
                 padding: const EdgeInsets.all(15.0),
                 child: TextFormField(
                   decoration: const InputDecoration(
                     border: OutlineInputBorder(),
-                    hintText: 'city name',
+                    hintText: 'Enter a city name',
                     hintStyle: TextStyle(color: Colors.white),
                   ),
-                  style: const TextStyle(color: Colors.white),
+                  style: const TextStyle(color: Colors.white, fontSize: 25.0),
                 ),
               ),
               const SizedBox(
