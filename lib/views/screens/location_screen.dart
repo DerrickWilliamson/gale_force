@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:gale_force/views/screens/location_screen.dart';
+import 'package:gale_force/views/screens/weather_screen.dart';
 
-class WeatherScreen extends StatelessWidget {
-  const WeatherScreen({super.key});
+class LocationScreen extends StatelessWidget {
+  const LocationScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,8 +14,11 @@ class WeatherScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Text(
-                'Weather Screen',
-                style: TextStyle(fontSize: 40.0, color: Colors.white),
+                'Location Screen',
+                style: TextStyle(
+                  fontSize: 40.0,
+                  color: Colors.white,
+                ),
               ),
               const SizedBox(
                 height: 10.0,
@@ -27,9 +30,9 @@ class WeatherScreen extends StatelessWidget {
                 ),
                 onPressed: () {
                   Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const LocationScreen()));
+                      builder: (context) => const WeatherScreen()));
                 },
-                child: const Text('Go to Location Screen'),
+                child: const Text('Go to Weather Screen'),
               ),
             ],
           ),
