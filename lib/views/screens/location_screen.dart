@@ -14,10 +14,21 @@ class LocationScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Text(
-                'Location Screen',
+                'Enter Your Location',
                 style: TextStyle(
                   fontSize: 40.0,
                   color: Colors.white,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: TextFormField(
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    hintText: 'city name',
+                    hintStyle: TextStyle(color: Colors.white),
+                  ),
+                  style: const TextStyle(color: Colors.white),
                 ),
               ),
               const SizedBox(
@@ -32,7 +43,10 @@ class LocationScreen extends StatelessWidget {
                   Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) => const WeatherScreen()));
                 },
-                child: const Text('Go to Weather Screen'),
+                child: const Text(
+                  'Search',
+                  style: TextStyle(fontSize: 20.0),
+                ),
               ),
             ],
           ),

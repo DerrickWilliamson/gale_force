@@ -29,7 +29,10 @@ class WeatherScreen extends StatelessWidget {
                   Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) => const LocationScreen()));
                 },
-                child: const Text('Go to Location Screen'),
+                child: const Text(
+                  'Go to Location Screen',
+                  style: TextStyle(fontSize: 20.0),
+                ),
               ),
             ],
           ),
