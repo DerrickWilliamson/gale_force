@@ -78,41 +78,32 @@ class WeatherScreen extends StatelessWidget {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  ElevatedButton(
-                    style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(Colors.white),
-                      foregroundColor: MaterialStateProperty.all(Colors.black),
-                    ),
-                    onPressed: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const RadarScreen()));
-                    },
-                    child: const Text(
-                      'Radar Screen',
-                      style: TextStyle(fontSize: 20.0),
-                    ),
-                  ),
-                  const SizedBox(width: 10.0),
-                  ElevatedButton(
-                    style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(Colors.white),
-                      foregroundColor: MaterialStateProperty.all(Colors.black),
-                    ),
-                    onPressed: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const LocationScreen()));
-                    },
-                    child: const Text(
-                      'Enter New Location',
-                      style: TextStyle(fontSize: 20.0),
-                    ),
-                  ),
-                ],
+            ElevatedButton(
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(Colors.white),
+                foregroundColor: MaterialStateProperty.all(Colors.black),
+              ),
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const RadarScreen()));
+              },
+              child: const Text(
+                'Radar Screen',
+                style: TextStyle(fontSize: 20.0),
+              ),
+            ),
+            ElevatedButton(
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(Colors.white),
+                foregroundColor: MaterialStateProperty.all(Colors.black),
+              ),
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const LocationScreen()));
+              },
+              child: const Text(
+                'Enter New Location',
+                style: TextStyle(fontSize: 20.0),
               ),
             ),
           ],
