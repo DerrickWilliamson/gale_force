@@ -1,8 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:gale_force/views/screens/weather_screen.dart';
 
-class LocationScreen extends StatelessWidget {
+class LocationScreen extends StatefulWidget {
   const LocationScreen({super.key});
+
+  @override
+  State<LocationScreen> createState() => _LocationScreenState();
+}
+
+class _LocationScreenState extends State<LocationScreen> {
+  Future _handleOnPressed() async {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const WeatherScreen(),
+      ),
+    );
+    showDialog(
+        context: context,
+        builder: (context) {
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        });
+    await Future.delayed(const Duration(seconds: 2));
+    Navigator.pop(context);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -39,8 +62,9 @@ class LocationScreen extends StatelessWidget {
                 foregroundColor: MaterialStateProperty.all(Colors.black),
               ),
               onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const WeatherScreen()));
+                setState(() {
+                  _handleOnPressed();
+                });
               },
               child: const Text(
                 'Search',
