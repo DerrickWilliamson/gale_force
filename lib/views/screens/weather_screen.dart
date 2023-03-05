@@ -15,17 +15,21 @@ class WeatherScreen extends StatelessWidget {
           children: [
             const SizedBox(height: 10.0),
             const Padding(
-              padding: EdgeInsets.all(8.0),
+              padding: EdgeInsets.all(15.0),
               child: Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
                   '7 Day Forecast',
                   textAlign: TextAlign.left,
-                  style: TextStyle(fontSize: 40.0, color: kAppTextColor),
+                  style: TextStyle(
+                      fontSize: 40.0,
+                      color: kAppTextColor,
+                      fontWeight: FontWeight.bold),
                 ),
               ),
             ),
-            Container(
+            const SizedBox(height: 10.0),
+            SizedBox(
               height: 200.0,
               width: 500.0,
               child: GridView.count(
@@ -61,42 +65,54 @@ class WeatherScreen extends StatelessWidget {
               ),
             ),
             const Padding(
-              padding: EdgeInsets.all(8.0),
+              padding: EdgeInsets.all(15.0),
               child: Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
                   'Current Conditions',
                   textAlign: TextAlign.left,
-                  style: TextStyle(fontSize: 40.0, color: kAppTextColor),
+                  style: TextStyle(
+                      fontSize: 35.0,
+                      color: kAppTextColor,
+                      fontWeight: FontWeight.bold),
                 ),
               ),
             ),
-            ElevatedButton(
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(Colors.white),
-                foregroundColor: MaterialStateProperty.all(Colors.black),
-              ),
-              onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const RadarScreen()));
-              },
-              child: const Text(
-                'Radar Screen',
-                style: TextStyle(fontSize: 20.0),
-              ),
-            ),
-            ElevatedButton(
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(Colors.white),
-                foregroundColor: MaterialStateProperty.all(Colors.black),
-              ),
-              onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const LocationScreen()));
-              },
-              child: const Text(
-                'Enter New Location',
-                style: TextStyle(fontSize: 20.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  ElevatedButton(
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(Colors.white),
+                      foregroundColor: MaterialStateProperty.all(Colors.black),
+                    ),
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const RadarScreen()));
+                    },
+                    child: const Text(
+                      'Radar Screen',
+                      style: TextStyle(fontSize: 20.0),
+                    ),
+                  ),
+                  const SizedBox(width: 10.0),
+                  ElevatedButton(
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(Colors.white),
+                      foregroundColor: MaterialStateProperty.all(Colors.black),
+                    ),
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const LocationScreen()));
+                    },
+                    child: const Text(
+                      'Enter New Location',
+                      style: TextStyle(fontSize: 20.0),
+                    ),
+                  ),
+                ],
               ),
             ),
           ],
