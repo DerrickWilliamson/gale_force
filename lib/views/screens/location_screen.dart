@@ -23,8 +23,8 @@ class _LocationScreenState extends State<LocationScreen> {
             child: CircularProgressIndicator(),
           );
         });
-    await Future.delayed(const Duration(seconds: 2));
-    Navigator.pop(context);
+    await Future.delayed(const Duration(seconds: 1));
+    Navigator.of(context).pop();
   }
 
   @override
