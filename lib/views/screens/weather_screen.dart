@@ -60,12 +60,18 @@ class WeatherScreen extends StatelessWidget {
               style: TextStyle(fontSize: 40.0, color: kAppTextColor),
             ),
             ElevatedButton(
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(Colors.white),
+                foregroundColor: MaterialStateProperty.all(Colors.black),
+              ),
               onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => const RadarScreen()),
-                );
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const RadarScreen()));
               },
-              child: const Text('Go to Radar'),
+              child: const Text(
+                'Radar Screen',
+                style: TextStyle(fontSize: 20.0),
+              ),
             ),
           ],
         ),
