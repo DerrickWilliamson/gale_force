@@ -24,32 +24,37 @@ class WeatherScreen extends StatelessWidget {
               height: 200.0,
               width: 500.0,
               child: GridView.count(
-                  scrollDirection: Axis.horizontal,
-                  crossAxisCount: 1,
-                  children: List.generate(7, (index) {
+                scrollDirection: Axis.horizontal,
+                crossAxisCount: 1,
+                children: List.generate(
+                  7,
+                  (index) {
                     return Center(
-                      child: Card(
-                        child: Text('Day $index'),
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 5.0, right: 5.0),
+                        child: Card(
+                          color: Colors.white,
+                          child: Column(
+                            children: [
+                              Row(
+                                children: [
+                                  const Icon(Icons.wb_sunny),
+                                  const SizedBox(width: 15.0),
+                                  Text(
+                                    'Day $index',
+                                    style: const TextStyle(fontSize: 20.0),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
                       ),
                     );
-                  })),
+                  },
+                ),
+              ),
             ),
-            // ListView.separated(
-            //   scrollDirection: Axis.vertical,
-            //   shrinkWrap: true,
-            //   itemCount: 7,
-            //   itemBuilder: (BuildContext context, int index) {
-            //     return Container(
-            //       width: 100.0,
-            //       child: Card(
-            //         child: Text('Day $index'),
-            //       ),
-            //     );
-            //   },
-            //   separatorBuilder: (context, index) => const Divider(
-            //     color: Colors.white,
-            //   ),
-            // ),
             const Text(
               'Current Conditions in <city>',
               style: TextStyle(fontSize: 40.0, color: kAppTextColor),
