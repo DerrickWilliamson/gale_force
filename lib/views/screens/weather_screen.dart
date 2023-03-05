@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gale_force/views/components/constants.dart';
+import 'package:gale_force/views/screens/location_screen.dart';
 import 'package:gale_force/views/screens/radar_screen.dart';
 
 class WeatherScreen extends StatelessWidget {
@@ -15,9 +16,13 @@ class WeatherScreen extends StatelessWidget {
             const SizedBox(height: 10.0),
             const Padding(
               padding: EdgeInsets.all(8.0),
-              child: Text(
-                '7-day Forecast',
-                style: TextStyle(fontSize: 40.0, color: kAppTextColor),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  '7 Day Forecast',
+                  textAlign: TextAlign.left,
+                  style: TextStyle(fontSize: 40.0, color: kAppTextColor),
+                ),
               ),
             ),
             Container(
@@ -55,9 +60,16 @@ class WeatherScreen extends StatelessWidget {
                 ),
               ),
             ),
-            const Text(
-              'Current Conditions in <city>',
-              style: TextStyle(fontSize: 40.0, color: kAppTextColor),
+            const Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  'Current Conditions',
+                  textAlign: TextAlign.left,
+                  style: TextStyle(fontSize: 40.0, color: kAppTextColor),
+                ),
+              ),
             ),
             ElevatedButton(
               style: ButtonStyle(
@@ -70,6 +82,20 @@ class WeatherScreen extends StatelessWidget {
               },
               child: const Text(
                 'Radar Screen',
+                style: TextStyle(fontSize: 20.0),
+              ),
+            ),
+            ElevatedButton(
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(Colors.white),
+                foregroundColor: MaterialStateProperty.all(Colors.black),
+              ),
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const LocationScreen()));
+              },
+              child: const Text(
+                'Enter New Location',
                 style: TextStyle(fontSize: 20.0),
               ),
             ),
