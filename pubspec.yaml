@@ -20,12 +20,11 @@ dependencies:
   cupertino_icons: ^1.0.2
   responsive_framework: ^0.2.0
   flutter_bloc: ^8.1.2
-  equatable: ^2.0.5
   json_annotation: ^4.8.0
   json_serializable: ^6.6.1
   build_runner: ^2.3.3
   http: ^0.13.5
-  bloc: ^8.1.1
+ 
 
 dev_dependencies:
   flutter_test:
