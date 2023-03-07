@@ -98,20 +98,6 @@ class _WeatherScreenState extends State<WeatherScreen> {
                 ),
               ),
             ),
-            ElevatedButton(
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(Colors.white),
-                foregroundColor: MaterialStateProperty.all(Colors.black),
-              ),
-              onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const LocationScreen()));
-              },
-              child: const Text(
-                'Enter New Location',
-                style: TextStyle(fontSize: 20.0),
-              ),
-            ),
           ],
         ),
       ),
