@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
           const ResponsiveBreakpoint.resize(1000, name: DESKTOP),
         ],
       ),
-      home: LocationScreen(),
+      home: const LocationScreen(),
     );
   }
 }

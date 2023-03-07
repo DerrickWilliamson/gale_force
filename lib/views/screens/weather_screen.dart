@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gale_force/views/components/constants.dart';
 import 'package:gale_force/views/screens/location_screen.dart';
-import 'package:gale_force/views/screens/radar_screen.dart';
 
 class WeatherScreen extends StatelessWidget {
   const WeatherScreen({super.key});
@@ -74,20 +73,6 @@ class WeatherScreen extends StatelessWidget {
                       color: kAppTextColor,
                       fontWeight: FontWeight.bold),
                 ),
-              ),
-            ),
-            ElevatedButton(
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(Colors.white),
-                foregroundColor: MaterialStateProperty.all(Colors.black),
-              ),
-              onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const RadarScreen()));
-              },
-              child: const Text(
-                'Radar Screen',
-                style: TextStyle(fontSize: 20.0),
               ),
             ),
             ElevatedButton(
