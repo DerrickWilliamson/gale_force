@@ -2,8 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:gale_force/views/components/constants.dart';
 import 'package:gale_force/views/screens/location_screen.dart';
 
-class WeatherScreen extends StatelessWidget {
+class WeatherScreen extends StatefulWidget {
   const WeatherScreen({super.key});
+
+  @override
+  State<WeatherScreen> createState() => _WeatherScreenState();
+}
+
+class _WeatherScreenState extends State<WeatherScreen> {
+  TextEditingController _cityNameController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -13,6 +20,22 @@ class WeatherScreen extends StatelessWidget {
         child: Column(
           children: [
             const SizedBox(height: 10.0),
+            Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: TextFormField(
+                controller: _cityNameController,
+                decoration: const InputDecoration(
+                  labelText: 'Enter City Name',
+                  labelStyle: TextStyle(color: kAppTextColor),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: kAppTextColor),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: kAppTextColor),
+                  ),
+                ),
+              ),
+            ),
             const Padding(
               padding: EdgeInsets.all(15.0),
               child: Align(
