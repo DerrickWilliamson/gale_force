@@ -16,5 +16,6 @@ class _WeatherScreenState extends State<WeatherScreen> {
       // Tenary operator to check if _isLoading is true or false
       // If true, return LoadingScreen()
       // If false, return Scaffold()
+      // Can be used as the tenary operator is a 1 line statement being returned
       _isLoading ? LoadingScreen() : Scaffold();
 }
