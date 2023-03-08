@@ -6,14 +6,12 @@ class LoadingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: SafeArea(
-        child: Center(
-          child: Text(
-            'Loading Screen',
-            style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-          ),
-        ),
+      backgroundColor: Colors.black,
+      body: Center(
+        child: CircularProgressIndicator(),
       ),
     );
   }
 }
+
+String youtubeLink = 'https://www.youtube.com/watch?v=16hn2G-z7HE';
