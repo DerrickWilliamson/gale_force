@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'package:gale_force/models/weather.dart';
+import 'package:gale_force/models/weather_model.dart';
 import 'package:http/http.dart' as http;
 
 class WeatherApi {
