@@ -24,7 +24,8 @@ class Weather {
   });
 
   /* This is a factory METHOD (not a constructor as constructors have the same name as the class
-  and don't have a RETURN type) and creates / converts a Weather object from a JSON object. */
+  and don't have a RETURN type) A factory method creates / converts a Weather object from a JSON object
+  received from making an API call or from a hard-coded JSON data file. */
   factory Weather.fromJson(json) {
     return Weather(
       uvIndex: json['current']['uv'],
