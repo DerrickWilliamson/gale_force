@@ -9,13 +9,11 @@ class WeatherScreen extends StatefulWidget {
 }
 
 class _WeatherScreenState extends State<WeatherScreen> {
-  bool _isLoading = false;
+  bool _isLoading = true;
 
   @override
   Widget build(BuildContext context) =>
-      // Tenary operator to check if _isLoading is true or false
-      // If true, return LoadingScreen()
-      // If false, return Scaffold()
-      // Can be used as the tenary operator is a 1 line statement being returned
+      /* Using a tenary operator to check if _isLoading is true or false.
+      Able to use the fat arrow syntax because a tenary operator is a one line statement.*/
       _isLoading ? LoadingScreen() : Scaffold();
 }
