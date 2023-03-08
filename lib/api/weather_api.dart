@@ -8,7 +8,7 @@ class WeatherApi {
 
   /* This method is used to make a GET request to the Weather API and return a Weather object.
   It uses the weather_model */
-  Future<Weather> getWeatherData() async {
+  Future<WeatherModel> getWeatherData() async {
     final uri = Uri.parse(
         /* converts a string API URI into a URI object that can be used in the .get http request. */
         'http://api.weatherapi.com/v1/forecast.json?key=d6935384eb3e4934b72234721230703&q=$city&days=1&aqi=no&alerts=no');
@@ -17,10 +17,10 @@ class WeatherApi {
     if (response.statusCode == 200) {
       final json = jsonDecode(response
           .body); /* decodes the JSON response body into a Map<String, dynamic> object and assigns it to 'json'. */
-      return Weather.fromJson(
+      return WeatherModel.fromJson(
           json); /* returns a Weather object from the JSON response body here named 'json'. */
     } else {
-      throw Exception('Failed to load weather data');
+      throw Exception('Failed to load weather');
     }
   }
 }

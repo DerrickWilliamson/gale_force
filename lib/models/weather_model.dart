@@ -1,5 +1,5 @@
-/* Creating the Weather class with all properties to be used within the app */
-class Weather {
+/* Creating the WeatherModel class with all properties to be used within the app */
+class WeatherModel {
   final String city;
   final double temp;
   final String text;
@@ -10,8 +10,8 @@ class Weather {
   final double wind;
   final List forecast;
 
-/* Weather class constructor */
-  Weather({
+/* WeatherModel class constructor */
+  WeatherModel({
     this.city = '',
     this.temp = 0.0,
     this.text = '',
@@ -24,10 +24,10 @@ class Weather {
   });
 
   /* This is a factory METHOD (not a constructor as constructors have the same name as the class
-  and don't have a RETURN type) A factory method creates / converts a Weather object from a JSON object
+  and don't have a RETURN type) A factory method creates / converts a WeatherModel object from a JSON object
   received from making an API call or from a hard-coded JSON data file. */
-  factory Weather.fromJson(json) {
-    return Weather(
+  factory WeatherModel.fromJson(json) {
+    return WeatherModel(
       uvIndex: json['current']['uv'],
       city: json['location']['name'],
       date: json['location']['localtime'],
@@ -39,7 +39,7 @@ class Weather {
       wind: json['current']['wind_kph'],
     );
   }
-  /* Not creating a toJson() method as we are not converting a Weather object to a JSON object 
+  /* Not creating a toJson() method as we are not converting a WeatherModel object to a JSON object 
   to be sent to a server or database. 
   
   Example:
