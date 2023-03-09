@@ -27,6 +27,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
   String icon = '';
   bool _isLoading = true;
 
+/* class methods to be used in the build method below. */
   Future getWeather() async {
     weather = await weatherApi.getWeatherData();
     setState(() {
@@ -44,6 +45,13 @@ class _WeatherScreenState extends State<WeatherScreen> {
       setState(() {
         isNight = true;
         defaultColor = nightAppBarColor;
+      });
+    }
+    if (turnInt > 5 && turnInt < 19) {
+      setState(() {
+        isNight = false;
+        isDay = true;
+        defaultColor = dayAppBarColor;
       });
     }
   }
