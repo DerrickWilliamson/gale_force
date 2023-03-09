@@ -78,6 +78,53 @@ class _WeatherScreenState extends State<WeatherScreen> {
     }
   }
 
+  void night() async {
+    setState(() {
+      defaultColor = nightAppBarColor;
+    });
+
+    if (weather.text == 'Partly Cloud') {
+      setState(() {
+        loadingIcon = partlyCloudyIconNight;
+      });
+    }
+    if (weather.text == 'Clear') {
+      setState(() {
+        loadingIcon = clearNightIcon;
+      });
+    }
+  }
+
+  void gethour() {
+    List datetime = weather.date.split(' ');
+    var hours = datetime[1].split(':');
+    var turnInt = int.parse(hours[0]);
+    setState(() {
+      hour = turnInt;
+    });
+  }
+
+  @override
+  void initState() {
+    getWeather();
+    Timer.periodic(Duration(seconds: 2), (timer) {
+      setDay();
+    });
+    Timer.periodic(Duration(seconds: 3), (timer) {
+      isDay ? day() : night();
+    });
+    Timer.periodic(Duration(seconds: 3), (timer) {
+      gethour();
+    });
+    Future.delayed(Duration(seconds: 2), () async {
+      await weatherApi.getWeatherData;
+      setState(() {
+        _isLoading = false;
+      });
+    });
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) =>
       /* Using a tenary operator to check if _isLoading is true or false.
