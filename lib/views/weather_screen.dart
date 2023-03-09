@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gale_force/api/weather_api.dart';
 import 'package:gale_force/models/weather_model.dart';
+import 'package:gale_force/views/components/constants.dart';
 import 'package:gale_force/views/loading_screen.dart';
 
 class WeatherScreen extends StatefulWidget {
