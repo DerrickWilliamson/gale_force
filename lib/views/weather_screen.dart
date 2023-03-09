@@ -17,6 +17,13 @@ class _WeatherScreenState extends State<WeatherScreen> {
   /* Creates an instance of the Weather class to access the Weather object and fromJson() method. */
   WeatherModel weather = WeatherModel();
 
+/* class properties to be used in the WeatherScreen class methods and build method. */
+  String image = '';
+  Color defaultColor = Colors.black;
+  int hour = 0;
+  bool isDay = false;
+  bool isNight = false;
+  String icon = '';
   bool _isLoading = true;
 
   Future getWeather() async {
@@ -25,6 +32,19 @@ class _WeatherScreenState extends State<WeatherScreen> {
       getWeather();
       _isLoading = false;
     });
+  }
+
+  void setDay() async {
+    List datetime = weather.date.split(' ');
+    var hours = datetime[1].split(':');
+    var turnInt = hours.parse(hours[0]);
+    if (turnInt >= 19 || turnInt <= 5) {
+      print(turnInt);
+      setState(() {
+        isNight = true;
+        defaultColor = nightAppBarColor;
+      });
+    }
   }
 
   @override
