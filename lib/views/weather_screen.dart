@@ -13,10 +13,11 @@ class WeatherScreen extends StatefulWidget {
 class _WeatherScreenState extends State<WeatherScreen> {
   /* Creates an instance of the WeatherApi class to access the getWeatherData() method which calls the API / http request. */
   WeatherApi weatherApi = WeatherApi();
+
   /* Creates an instance of the Weather class to access the Weather object and fromJson() method. */
   WeatherModel weather = WeatherModel();
 
-  bool _isLoading = false;
+  bool _isLoading = true;
 
   Future getWeather() async {
     weather = await weatherApi.getWeatherData();
