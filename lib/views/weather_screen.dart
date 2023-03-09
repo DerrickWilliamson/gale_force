@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gale_force/api/weather_api.dart';
 import 'package:gale_force/models/weather_model.dart';
 import 'package:gale_force/views/components/constants.dart';
+import 'package:gale_force/views/components/icons.dart';
 import 'package:gale_force/views/loading_screen.dart';
 
 class WeatherScreen extends StatefulWidget {
@@ -52,6 +53,27 @@ class _WeatherScreenState extends State<WeatherScreen> {
         isNight = false;
         isDay = true;
         defaultColor = dayAppBarColor;
+      });
+    }
+  }
+
+  void day() async {
+    setState(() {
+      defaultColor = dayAppBarColor;
+    });
+    if (weather.text == 'Sunny') {
+      setState(() {
+        loadingIcon = sunnyIcon;
+      });
+    }
+    if (weather.text == 'Overcast') {
+      setState(() {
+        loadingIcon = overcastDayIcon;
+      });
+    }
+    if (weather.text == 'Partly Cloudy') {
+      setState(() {
+        loadingIcon = partlyCloudyDayIcon;
       });
     }
   }
