@@ -27,6 +27,7 @@ class Header extends StatefulWidget {
 
 class _HeaderState extends State<Header> {
   WeatherApi weatherService = WeatherApi();
+  WeatherModel weatherModel = WeatherModel();
   IconData textfieldClearIcon = Icons.clear;
   var _textfieldController = TextEditingController();
   bool _isLoading = false;
@@ -59,7 +60,7 @@ class _HeaderState extends State<Header> {
                       onSubmitted: (value) {
                         setState(() {
                           _isLoading = true;
-                          city = value;
+                          widget.cityName = value;
                           Future.delayed(Duration(seconds: 1), () {
                             loadingFunc();
                             _textfieldController.clear();
