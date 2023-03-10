@@ -40,10 +40,14 @@ class _WeatherScreenState extends State<WeatherScreen> {
   }
 
   void setDay() async {
-    List datetime = weather.date.split(' ');
-    var hours = datetime[1].split(':');
-    var turnInt = hours.parse(hours[0]);
+    List datetime = weather.date.split(
+        ' '); // Splits the weather object's datatime string into a list of two strings.
+    var hours = datetime[1].split(
+        ':'); // Splits the second string in the datatime List to separate the hours and minutes.
+    var turnInt =
+        hours.parse(hours[0]); // Parses the hours string to an integer.
     if (turnInt >= 19 || turnInt <= 5) {
+      // Checks if the hour is between 7pm and 5am and sets the isNight bool to true.
       print(turnInt);
       setState(() {
         isNight = true;
@@ -51,6 +55,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
       });
     }
     if (turnInt > 5 && turnInt < 19) {
+      // Checks if the hour is between 5am and 7pm and sets the isDay bool to true.
       setState(() {
         isNight = false;
         isDay = true;
@@ -60,6 +65,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
   }
 
   void day() async {
+    // Function to set the day theme and icon according to the returned weather object.
     setState(() {
       defaultColor = dayAppBarColor;
     });
@@ -81,6 +87,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
   }
 
   void night() async {
+    // Function to set the night theme and icon according to the returned weather object.
     setState(() {
       defaultColor = nightAppBarColor;
     });
@@ -98,6 +105,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
   }
 
   void gethour() {
+    // Function to get the hour from the returned weather object datetime string.
     List datetime = weather.date.split(' ');
     var hours = datetime[1].split(':');
     var turnInt = int.parse(hours[0]);
@@ -106,6 +114,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
     });
   }
 
+  /* Calls the getWeather method along with various timers to check the time and set the app theme accordingly. */
   @override
   void initState() {
     getWeather();

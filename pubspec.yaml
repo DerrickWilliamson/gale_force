@@ -24,6 +24,7 @@ dependencies:
   json_serializable: ^6.6.1
   build_runner: ^2.3.3
   http: ^0.13.5
+  lottie: ^2.2.0
  
 
 dev_dependencies:

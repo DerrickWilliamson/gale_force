@@ -4,7 +4,7 @@ String sunnyIcon =
     'https://assets9.lottiefiles.com/packages/lf20_xlky4kvh.json';
 String partlyCloudyIconNight =
     'https://assets5.lottiefiles.com/packages/lf20_KUFdS6.json';
-String partlyCloudDayIcon =
+String partlyCloudyDayIcon =
     'https://assets6.lottiefiles.com/temp/lf20_dgjK9i.json';
 String clearNightIcon = 'https://assets8.lottiefiles.com/temp/lf20_Jj2Qzq.json';
 String rainyIcon =
