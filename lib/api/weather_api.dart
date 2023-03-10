@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http; /* makes HTTP requests */
 
 /* This class is used to make HTTP requests to the Weather API */
 class WeatherApi {
-  String city = 'Oklahoma City';
+  String city = 'London';
 
   /* This method is used to make a GET request to the Weather API and return a Weather object.
   It uses the weather_model */
