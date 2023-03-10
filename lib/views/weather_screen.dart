@@ -50,7 +50,6 @@ class _WeatherScreenState extends State<WeatherScreen> {
     var turnInt = int.parse(hours[0]); // Parses the hours string to an integer.
     if (turnInt >= 19 || turnInt <= 5) {
       // Checks if the hour is between 7pm and 5am and sets the isNight bool to true.
-      print(turnInt);
       setState(() {
         isNight = true;
         defaultColor = nightAppBarColor;
