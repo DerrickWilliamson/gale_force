@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:gale_force/api/weather_api.dart';
 import 'package:gale_force/models/weather_model.dart';
