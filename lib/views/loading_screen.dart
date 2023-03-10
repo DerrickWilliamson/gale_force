@@ -13,5 +13,3 @@ class LoadingScreen extends StatelessWidget {
     );
   }
 }
-
-String youtubeLink = 'https://www.youtube.com/watch?v=16hn2G-z7HE';
