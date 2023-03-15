@@ -36,7 +36,7 @@ class WeatherModel {
       state: json['location']['region'],
       temp: json['current']['temp_f'],
       text: json['current']['condition']['text'],
-      wind: json['current']['wind_kph'],
+      wind: json['current']['wind_mph'],
     );
   }
   /* Not creating a toJson() method as we are not converting a WeatherModel object to a JSON object 

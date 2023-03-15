@@ -100,7 +100,7 @@ class InformationCard extends StatelessWidget {
                     ),
                     const SizedBox(height: 5),
                     Text(
-                      '$wind km/h',
+                      '$wind mph',
                       style: const TextStyle(
                           fontWeight: FontWeight.w600,
                           color: Color.fromARGB(139, 255, 255, 255)),
