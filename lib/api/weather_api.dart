@@ -18,7 +18,7 @@ class WeatherApi {
       final json = jsonDecode(response
           .body); /* decodes the JSON response body into a Map<String, dynamic> object and assigns it to 'json'. */
       return WeatherModel.fromJson(
-          json); /* returns a Weather object from the JSON response body here named 'json'. */
+          json); /* returns a Weather object from the 'json' response body. */
     } else {
       throw Exception('Failed to load weather');
     }

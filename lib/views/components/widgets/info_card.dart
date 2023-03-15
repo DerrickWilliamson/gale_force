@@ -20,7 +20,7 @@ class InformationCard extends StatelessWidget {
         child: Container(
           width: 100,
           height: 150,
-          color: Color.fromARGB(18, 255, 255, 255),
+          color: const Color.fromARGB(18, 255, 255, 255),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -47,7 +47,7 @@ class InformationCard extends StatelessWidget {
                             color: Colors.white, fontWeight: FontWeight.w500)),
                     const SizedBox(height: 5),
                     Text('$humidity%',
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontWeight: FontWeight.w600,
                             color: Color.fromARGB(139, 255, 255, 255)))
                   ],
@@ -80,7 +80,7 @@ class InformationCard extends StatelessWidget {
                   ],
                 ),
               ),
-              Container(
+              SizedBox(
                 width: 110,
                 height: 100,
                 child: Column(

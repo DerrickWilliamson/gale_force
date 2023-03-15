@@ -61,13 +61,13 @@ class _HeaderState extends State<Header> {
                         setState(() {
                           _isLoading = true;
                           widget.cityName = value;
-                          Future.delayed(Duration(seconds: 1), () {
+                          Future.delayed(const Duration(seconds: 1), () {
                             loadingFunc();
                             _textfieldController.clear();
                           });
                         });
                       },
-                      style: TextStyle(color: Colors.white),
+                      style: const TextStyle(color: Colors.white),
                       decoration: InputDecoration(
                         suffixIcon: IconButton(
                             onPressed: () {
@@ -75,13 +75,13 @@ class _HeaderState extends State<Header> {
                               FocusScope.of(context).unfocus();
                             },
                             icon: Icon(textfieldClearIcon)),
-                        contentPadding:
-                            EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+                        contentPadding: const EdgeInsets.symmetric(
+                            horizontal: 15, vertical: 5),
                         hintText: 'Search for  cities',
-                        hintStyle: TextStyle(
+                        hintStyle: const TextStyle(
                             color: Color.fromARGB(133, 255, 255, 255)),
                         filled: true,
-                        fillColor: Color.fromARGB(18, 255, 255, 255),
+                        fillColor: const Color.fromARGB(18, 255, 255, 255),
                         focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide.none,
                             borderRadius: BorderRadius.circular(15)),
@@ -94,9 +94,9 @@ class _HeaderState extends State<Header> {
                       ),
                     ),
                   ),
-            SizedBox(height: 25),
+            const SizedBox(height: 25),
             notFound
-                ? Text('not found')
+                ? const Text('not found')
                 : Row(
                     children: [
                       Column(
@@ -113,7 +113,7 @@ class _HeaderState extends State<Header> {
                             width: 200,
                             child: Text(
                               widget.cityName,
-                              style: TextStyle(fontSize: 25),
+                              style: const TextStyle(fontSize: 25),
                             ),
                           ),
                           const SizedBox(height: 5),
@@ -131,7 +131,7 @@ class _HeaderState extends State<Header> {
                       const Spacer(),
                       Padding(
                         padding: const EdgeInsets.only(bottom: 15),
-                        child: Container(
+                        child: SizedBox(
                           width: 120,
                           height: 150,
                           child: Column(

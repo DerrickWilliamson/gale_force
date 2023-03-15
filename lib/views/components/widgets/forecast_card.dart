@@ -20,7 +20,7 @@ class ForecastCard extends StatelessWidget {
       height: 170,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          color: Color.fromARGB(18, 255, 255, 255)),
+          color: const Color.fromARGB(18, 255, 255, 255)),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -33,7 +33,7 @@ class ForecastCard extends StatelessWidget {
           Container(
             height: 70,
             width: 70,
-            color: Color.fromARGB(0, 0, 0, 0),
+            color: const Color.fromARGB(0, 0, 0, 0),
             child: (Image.network(
               descriptionIMG,
               fit: BoxFit.cover,
