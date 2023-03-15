@@ -34,7 +34,7 @@ class WeatherModel {
       forecast: json['forecast']['forecastday'][0]['hour'],
       humidity: json['current']['humidity'],
       state: json['location']['region'],
-      temp: json['current']['temp_c'],
+      temp: json['current']['temp_f'],
       text: json['current']['condition']['text'],
       wind: json['current']['wind_kph'],
     );
