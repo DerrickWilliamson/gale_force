@@ -12,10 +12,10 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
       emit(WeatherLoading());
 
       WeatherRepo repo = WeatherRepo();
-      Weather? currentWeather = await repo.getCurrentWeather();
+      Weather? weather = await repo.getCurrentWeather();
 
-      if (currentWeather != null) {
-        emit(WeatherLoaded());
+      if (weather != null) {
+        emit(WeatherLoaded(weather));
       } else {
         emit(WeatherError('Failed to load weather data'));
       }
