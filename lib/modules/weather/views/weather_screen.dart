@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gale_force/api/open_weather_api.dart';
 import 'package:gale_force/modules/weather/models/weather.dart';
+import 'package:gale_force/modules/weather/repository/weather_repo.dart';
 
 class WeatherScreen extends StatefulWidget {
   const WeatherScreen({Key? key}) : super(key: key);
@@ -20,7 +20,7 @@ class _WeatherPage2State extends State<WeatherScreen> {
   }
 
   Future<void> _loadWeather() async {
-    final openWeatherApi = OpenWeatherApi();
+    final openWeatherApi = WeatherRepo();
     final openWeather = await openWeatherApi.getCurrentWeather();
     setState(() {
       _openWeather = openWeather;
