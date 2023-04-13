@@ -7,8 +7,9 @@ class Weather {
   @JsonKey(name: 'name')
   String cityName;
   MainWeather mainWeather;
+  SysWeather sysWeather;
 
-  Weather(this.cityName, this.mainWeather);
+  Weather(this.cityName, this.mainWeather, this.sysWeather);
 }
 
 @JsonSerializable()
@@ -28,4 +29,14 @@ class MainWeather {
 
   factory MainWeather.fromJson(Map<String, dynamic> json) =>
       _$MainWeatherFromJson(json);
+}
+
+@JsonSerializable()
+class SysWeather {
+  String country;
+
+  SysWeather(this.country);
+
+  factory SysWeather.fromJson(Map<String, dynamic> json) =>
+      _$SysWeatherFromJson(json);
 }

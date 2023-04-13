@@ -21,7 +21,8 @@ class WeatherRepo {
       // var sysWeather = SysWeather.fromJson(data['sys']);
       var cityName = data['name'];
       var mainWeather = MainWeather.fromJson(data['main']);
-      return Weather(cityName, mainWeather);
+      var sysWeather = SysWeather.fromJson(data['sys']);
+      return Weather(cityName, mainWeather, sysWeather);
     } else {
       throw Exception('Failed to load current weather data');
     }

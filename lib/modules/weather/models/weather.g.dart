@@ -22,3 +22,12 @@ Map<String, dynamic> _$MainWeatherToJson(MainWeather instance) =>
       'temp_max': instance.tempMax,
       'humidity': instance.humidity,
     };
+
+SysWeather _$SysWeatherFromJson(Map<String, dynamic> json) => SysWeather(
+      json['country'] as String,
+    );
+
+Map<String, dynamic> _$SysWeatherToJson(SysWeather instance) =>
+    <String, dynamic>{
+      'country': instance.country,
+    };

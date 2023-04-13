@@ -46,6 +46,6 @@ flutter:
 
 
   assets:
-    - /
+    - .env
 
   
