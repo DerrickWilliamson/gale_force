@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gale_force/modules/weather/bloc/weather_bloc.dart';
 import 'package:gale_force/modules/weather/models/weather.dart';
 import 'package:gale_force/modules/weather/repository/weather_repo.dart';
 
@@ -32,7 +34,7 @@ class _WeatherPage2State extends State<WeatherScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: _isLoading
-          ? Center(child: CircularProgressIndicator())
+          ? const Center(child: CircularProgressIndicator())
           : Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
