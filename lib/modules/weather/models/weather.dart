@@ -25,4 +25,7 @@ class MainWeather {
 
   MainWeather(this.temperature, this.feelsLike, this.tempMin, this.tempMax,
       this.humidity);
+
+  factory MainWeather.fromJson(Map<String, dynamic> json) =>
+      _$MainWeatherFromJson(json);
 }

@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'weather_model.dart';
+part of 'weather.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
@@ -16,30 +16,9 @@ MainWeather _$MainWeatherFromJson(Map<String, dynamic> json) => MainWeather(
 
 Map<String, dynamic> _$MainWeatherToJson(MainWeather instance) =>
     <String, dynamic>{
-      'temp': instance.temp,
+      'temp': instance.temperature,
       'feels_like': instance.feelsLike,
       'temp_min': instance.tempMin,
       'temp_max': instance.tempMax,
       'humidity': instance.humidity,
-    };
-
-Wind _$WindFromJson(Map<String, dynamic> json) => Wind(
-      speed: (json['speed'] as num).toDouble(),
-    );
-
-Map<String, dynamic> _$WindToJson(Wind instance) => <String, dynamic>{
-      'speed': instance.speed,
-    };
-
-SysWeather _$SysWeatherFromJson(Map<String, dynamic> json) => SysWeather(
-      json['country'] as String,
-      json['sunrise'] as int,
-      json['sunset'] as int,
-    );
-
-Map<String, dynamic> _$SysWeatherToJson(SysWeather instance) =>
-    <String, dynamic>{
-      'country': instance.country,
-      'sunrise': instance.sunrise,
-      'sunset': instance.sunset,
     };
