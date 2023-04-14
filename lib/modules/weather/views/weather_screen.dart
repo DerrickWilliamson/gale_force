@@ -12,6 +12,8 @@ class WeatherScreen extends StatefulWidget {
 }
 
 class _WeatherPage2State extends State<WeatherScreen> {
+  //! is initializing a Weather object here necessary now that I'm using bloc?
+  //! if not, make sure I understand the logic of how it is handled by the bloc.
   late Weather _openWeather;
   bool _isLoading = true;
 
@@ -21,6 +23,8 @@ class _WeatherPage2State extends State<WeatherScreen> {
     _loadWeather();
   }
 
+//! thinking this function is irrelevant here in the UI if I properly set up
+//! my bloc and UI widgets.
   Future<void> _loadWeather() async {
     final openWeatherApi = WeatherRepo();
     final openWeather = await openWeatherApi.getCurrentWeather();
@@ -33,8 +37,12 @@ class _WeatherPage2State extends State<WeatherScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      //! should I replace this ternary operator with a BlocBuilder()? or would
+      //! the BlocBuilder() go inside of each of the potential widgets indicated below?
       body: _isLoading
+          //! should this be a 'WeatherLoading' widget in a 'widgets' folder?
           ? const Center(child: CircularProgressIndicator())
+          //! should this be a 'WeatherLoaded' widget in a 'widgets' folder?
           : Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,

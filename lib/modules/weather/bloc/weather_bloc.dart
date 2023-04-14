@@ -10,7 +10,9 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
   WeatherBloc() : super(WeatherInitial()) {
     on<FetchWeather>((event, emit) async {
       emit(WeatherLoading());
-
+      //! since I'm creating a weather model object and a repo object here,
+      //! does this replace the need for doing it in the UI as I currently
+      //! have done in the weather_screen.dart file???
       WeatherRepo repo = WeatherRepo();
       Weather? weather = await repo.getCurrentWeather();
 
