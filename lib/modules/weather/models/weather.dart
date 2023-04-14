@@ -3,13 +3,20 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'weather.g.dart';
 
+//! needs to be @JsonSerializable
+@JsonSerializable()
 class Weather {
   @JsonKey(name: 'name')
   String cityName;
+  @JsonKey(name: 'main')
   MainWeather mainWeather;
+  @JsonKey(name: 'sys')
   SysWeather sysWeather;
 
   Weather(this.cityName, this.mainWeather, this.sysWeather);
+
+  factory Weather.fromJson(Map<String, dynamic> json) =>
+      _$WeatherFromJson(json);
 }
 
 @JsonSerializable()

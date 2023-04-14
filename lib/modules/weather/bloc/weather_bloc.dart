@@ -10,11 +10,21 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
   WeatherBloc() : super(WeatherInitial()) {
     on<FetchWeather>((event, emit) async {
       emit(WeatherLoading());
-      // since I'm instantiating the weather model and a repo here,
+      // since I'm instantiating the weather model and repo here,
       // does this replace the need for doing it in the UI as I'm currently
       // doing in the weather_screen.dart file???
       WeatherRepo repo = WeatherRepo();
       Weather? weather = await repo.getCurrentWeather();
+
+      // is creating these variables necessary?
+      // thought this is what the json_serializable code generation handled.
+      var city = weather.cityName;
+      var country = weather.sysWeather.country;
+      var temp = weather.mainWeather.temperature;
+      var tempMax = weather.mainWeather.tempMax;
+      var tempMin = weather.mainWeather.tempMin;
+      var feelsLike = weather.mainWeather.feelsLike;
+      var humidity = weather.mainWeather.humidity;
 
       // would this be better as 'response.statuscode == 200' as it is
       // complaining about that the weather response will always be true?
