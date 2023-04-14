@@ -12,19 +12,21 @@ class WeatherScreen extends StatefulWidget {
 }
 
 class _WeatherPage2State extends State<WeatherScreen> {
-  //! is initializing a Weather object here necessary now that I'm using bloc?
+  //! is instantiating a Weather object here necessary if I'm using bloc?
   //! if not, make sure I understand the logic of how it is handled by the bloc.
+  //! see my notes in the weather_bloc
   late Weather _openWeather;
   bool _isLoading = true;
 
+  //! is this necessary if state is managed appropriately in the bloc?
   @override
   void initState() {
     super.initState();
     _loadWeather();
   }
 
-//! thinking this function is irrelevant here in the UI if I properly set up
-//! my bloc and UI widgets.
+//! again, is this function irrelevant here in the UI if I properly set up
+//! my bloc and UI widgets???
   Future<void> _loadWeather() async {
     final openWeatherApi = WeatherRepo();
     final openWeather = await openWeatherApi.getCurrentWeather();

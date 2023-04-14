@@ -16,6 +16,10 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
       WeatherRepo repo = WeatherRepo();
       Weather? weather = await repo.getCurrentWeather();
 
+      //! would this be better as 'response.statuscode == 200' as it is
+      //! complaining about that the weather response will always be true?
+      //! and why is that?  is it because I'm not doing any error handeling
+      //! before this is reaching the bloc???
       if (weather != null) {
         emit(WeatherLoaded(weather));
       } else {
