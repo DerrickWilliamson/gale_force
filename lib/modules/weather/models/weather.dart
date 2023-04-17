@@ -3,7 +3,6 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'weather.g.dart';
 
-//! needs to be @JsonSerializable
 @JsonSerializable()
 class Weather {
   @JsonKey(name: 'name')
