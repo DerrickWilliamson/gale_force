@@ -15,7 +15,7 @@ class FetchWeather extends WeatherEvent {}
 
 //? Purpose of the _event.dart file:
 //
-//  SHOULD BE THE CENTRAL LOCATION FOR ANY POSSIBLE EVENT DURING THE LIFE CYCLE OF THE APP!!!
+//  SHOULD BE THE CENTRAL LOCATION FOR ALL POSSIBLE EVENTS DURING THE LIFE CYCLE OF THE APP!!!
 //  Emits an asynchronous stream of events to the bloc.  Holds event classes or enums that 
 //  represent user actions, system events, or any other type of action that can affect the 
 //  state of the application.  Typically are simple data objects that encapsulate the necessary 
