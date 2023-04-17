@@ -8,6 +8,7 @@ class WeatherRepo {
   late String openWeatherApiKey = dotenv.env['OPENWEATHER_API_KEY']!;
   late String finalUrl =
       'https://api.openweathermap.org/data/2.5/weather?q=Oklahoma City&appid=$openWeatherApiKey&units=imperial';
+
   Future<Weather> getCurrentWeather() async {
     final url = Uri.parse(finalUrl);
     final response = await http.get(url);
