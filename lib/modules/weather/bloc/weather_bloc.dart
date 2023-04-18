@@ -32,17 +32,24 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
 
 //? Purpose of the _bloc.dart file:
 //
-// Is the mediator between the presentation layer and the data layer.  Receives an
-// an asynchronous stream of events from UI and queries the data layer as needed.  
-// Emits new states back to the UI via an asynchronous stream of states.
-// on<?> "handlers" and "Emitters"...
+// Is the mediator between the presentation layer and the data layer.  The goal is 
+// to provide a "seperation of concerns" in keeping the business logic separate from
+// the UI.  
 
 
 //? How a bloc works?
 //
-//  ...
+//  Receives an asynchronous stream of events from the UI, maps each event to a state,
+//  queries the data layer via interacting with a repository, and emits new states
+//  back to the UI.  All events are registered via the on<SomeEvent> API which is 
+//  responsible for converting incoming events into zero or more outgoing states and
+//  calling the associated functionality for each event.  The on<SomeEvent> API replaced 
+//  the mapEventToState method.  
 
 
 //? How to create a _bloc.dart file:
 //
-// ...
+//  1.  Use the bloc vs code extension to generate a new bloc and relevant folders and files.
+//  2.  Add on<SomeEvent> handlers for each event that emit a given state and the functionality 
+//        to be performed.
+//  3.  Use an If/Else Statement to check that the response was successful and to handle any errors.
