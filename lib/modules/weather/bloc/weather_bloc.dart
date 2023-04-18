@@ -12,7 +12,7 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
       emit(WeatherLoading());
       WeatherRepo repo = WeatherRepo();
       Weather? weather = await repo.getCurrentWeather();
-      print(weather);
+      // print(weather);
       // var city = weather.cityName;
       // var country = weather.sysWeather.country;
       // var temp = weather.mainWeather.temperature;
