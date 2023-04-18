@@ -10,26 +10,16 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
   WeatherBloc() : super(WeatherInitial()) {
     on<FetchWeather>((event, emit) async {
       emit(WeatherLoading());
-      // since I'm instantiating the weather model and repo here,
-      // does this replace the need for doing it in the UI as I'm currently
-      // doing in the weather_screen.dart file???
       WeatherRepo repo = WeatherRepo();
       Weather? weather = await repo.getCurrentWeather();
-
-      // is creating these variables necessary?
-      // thought this is what the json_serializable code generation handled.
-      var city = weather.cityName;
-      var country = weather.sysWeather.country;
-      var temp = weather.mainWeather.temperature;
-      var tempMax = weather.mainWeather.tempMax;
-      var tempMin = weather.mainWeather.tempMin;
-      var feelsLike = weather.mainWeather.feelsLike;
-      var humidity = weather.mainWeather.humidity;
-
-      // would this be better as 'response.statuscode == 200' as it is
-      // complaining about that the weather response will always be true?
-      // and why is that?  is it because I'm not doing any error handeling
-      // before this is reaching the bloc???
+      print(weather);
+      // var city = weather.cityName;
+      // var country = weather.sysWeather.country;
+      // var temp = weather.mainWeather.temperature;
+      // var tempMax = weather.mainWeather.tempMax;
+      // var tempMin = weather.mainWeather.tempMin;
+      // var feelsLike = weather.mainWeather.feelsLike;
+      // var humidity = weather.mainWeather.humidity;
       if (weather != null) {
         emit(WeatherLoaded(weather));
       } else {
@@ -38,3 +28,21 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
     });
   }
 }
+
+
+//? Purpose of the _bloc.dart file:
+//
+// Is the mediator between the presentation layer and the data layer.  Receives an
+// an asynchronous stream of events from UI and queries the data layer as needed.  
+// Emits new states back to the UI via an asynchronous stream of states.
+// on<?> "handlers" and "Emitters"...
+
+
+//? How a bloc works?
+//
+//  ...
+
+
+//? How to create a _bloc.dart file:
+//
+// ...
