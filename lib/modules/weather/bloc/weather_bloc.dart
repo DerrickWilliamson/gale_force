@@ -22,10 +22,10 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
 }
 
 
-//? Purpose of the _bloc.dart file:
+//? Purpose of the bloc:
 //
 // Is the mediator between the presentation layer and the data layer.  The goal is 
-// to provide a "seperation of concerns" in keeping the business logic separate from
+// to provide a "separation of concerns" in keeping the business logic separate from
 // the UI and the data layer.  The bloc is where all logic happens such as if the app 
 // is going to fetch or send data and what it will do with the data.
 
@@ -48,8 +48,8 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
 //
 //  Refers to the processing, manipulation, transformation, and error handling of data that is 
 //  specific to the business requirements of the application. It includes the rules, algorithms, 
-//  and logic that govern how data is processed, validated, transformed, and prepared for presentation 
-//  in the user interface.
+//  and logic that govern how data is processed, validated, transformed, and prepared for 
+//  presentation in the user interface.
 
 
 
@@ -61,11 +61,21 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
 //  3.  Use an If/Else Statement to check that the response was successful and to handle any errors.
 
 
-//? Dependency Injection (DI) and how to inject blocs into a UI?
+//? What is Dependency Injection (DI)?
 //
-//  
-
-
-//? How to access updated state objects within the UI?
+//  A software design pattern used in OOP that allows the dependencies of an object to be injected 
+//  or provided externally, rather than being created or managed by the object itself.
+// 
+//  "Dependencies" are objects or services that an object relies on to perform its functions. Are
+//  typically passed into an object's constructor, method, or set as properties, rather than 
+//  being directly instantiated within the object itself.
 //
-//  BlocProvicer, BlocBuilder, BlocListender, BlocConsumer...
+//  For example, imagine a car that needs different parts to function, like an engine, wheels,
+//  and a transmission. Instead of building these parts inside the car, you can have them 
+//  built separately and then installed in the car when needed. This way, you can easily replace 
+//  or upgrade any part without having to rebuild the entire car.
+//
+//  Similarly, in software development, DI allows you to separate the different parts or "dependencies"
+//  of your code, such as objects or services, and provide them externally when needed, instead of 
+//  creating them inside the code itself. This makes your code more modular, easier to understand, 
+//  and easier to test.
