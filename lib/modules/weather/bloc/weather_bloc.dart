@@ -46,7 +46,10 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
 
 //? What does the term "business logic" refer to in an app?
 //
-//  ...
+//  Refers to the processing, manipulation, transformation, and error handling of data that is 
+//  specific to the business requirements of the application. It includes the rules, algorithms, 
+//  and logic that govern how data is processed, validated, transformed, and prepared for presentation 
+//  in the user interface.
 
 
 
@@ -59,6 +62,8 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
 
 
 //? Dependency Injection (DI) and how to inject blocs into a UI?
+//
+//  
 
 
 //? How to access updated state objects within the UI?
