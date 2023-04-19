@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gale_force/modules/weather/bloc/weather_bloc.dart';
-import 'package:gale_force/modules/weather/models/weather.dart';
-import 'package:gale_force/modules/weather/repository/weather_repo.dart';
 
 class WeatherScreen extends StatefulWidget {
   const WeatherScreen({Key? key}) : super(key: key);
@@ -12,24 +10,6 @@ class WeatherScreen extends StatefulWidget {
 }
 
 class _WeatherPage2State extends State<WeatherScreen> {
-  late Weather _openWeather;
-  bool _isLoading = true;
-
-  @override
-  void initState() {
-    super.initState();
-    _loadWeather();
-  }
-
-  Future<void> _loadWeather() async {
-    final openWeatherApi = WeatherRepo();
-    final openWeather = await openWeatherApi.getCurrentWeather();
-    setState(() {
-      _openWeather = openWeather;
-      _isLoading = false;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,11 +19,41 @@ class _WeatherPage2State extends State<WeatherScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text('Sample Text Widget'),
               BlocBuilder<WeatherBloc, WeatherState>(
                   bloc: WeatherBloc(),
                   builder: (context, state) {
-                    return Container();
+                    return Column(
+                      children: [
+                        // Text(
+                        //   'City: ${state.testWeather.cityName}',
+                        //   style: TextStyle(fontSize: 20),
+                        // ),
+                        Text(
+                          'Temperature: ${state.temperature}',
+                          style: TextStyle(fontSize: 20),
+                        ),
+                        // Text(
+                        //   'Feels Like: ${state.weather.mainWeather.feelsLike}',
+                        //   style: TextStyle(fontSize: 20),
+                        // ),
+                        // Text(
+                        //   'Min Temperature: ${state.weather.mainWeather.tempMin}',
+                        //   style: TextStyle(fontSize: 20),
+                        // ),
+                        // Text(
+                        //   'Max Temperature: ${state.weather.mainWeather.tempMax}',
+                        //   style: TextStyle(fontSize: 20),
+                        // ),
+                        // Text(
+                        //   'Humidity: ${state.weather.mainWeather.humidity}',
+                        //   style: TextStyle(fontSize: 20),
+                        // ),
+                        // Text(
+                        //   'Country: ${state.weather.sysWeather.country}',
+                        //   style: TextStyle(fontSize: 20),
+                        // ),
+                      ],
+                    );
                   }),
             ],
           ),
@@ -52,45 +62,3 @@ class _WeatherPage2State extends State<WeatherScreen> {
     );
   }
 }
-
-
-
-// Scaffold(
-//       //! should I replace this ternary operator with a BlocBuilder()? or would
-//       //! the BlocBuilder() go inside of each of the potential widgets indicated below?
-//       body: _isLoading
-//           //! should this be a 'WeatherLoading' widget in a 'widgets' folder?
-//           ? const Center(child: CircularProgressIndicator())
-//           //! should this be a 'WeatherLoaded' widget in a 'widgets' folder?
-//           : Center(
-//               child: Column(
-//                 mainAxisAlignment: MainAxisAlignment.center,
-//                 children: [
-//                   Text(
-//                     '${_openWeather.cityName}, ${_openWeather.sysWeather.country}',
-//                     style: const TextStyle(
-//                         fontSize: 30.0, fontWeight: FontWeight.bold),
-//                   ),
-//                   const SizedBox(height: 30.0),
-//                   Text(
-//                     'Current Temperature: ${_openWeather.mainWeather.temperature} ºF',
-//                     style: const TextStyle(fontSize: 20.0),
-//                   ),
-//                   Text('Feels Like: ${_openWeather.mainWeather.feelsLike} ºF',
-//                       style: const TextStyle(fontSize: 20.0)),
-//                   Text(
-//                     'Today\'s Low: ${_openWeather.mainWeather.tempMin} ºF',
-//                     style: const TextStyle(fontSize: 20.0),
-//                   ),
-//                   Text(
-//                     'Today\'s High: ${_openWeather.mainWeather.tempMax} ºF',
-//                     style: const TextStyle(fontSize: 20.0),
-//                   ),
-//                   Text(
-//                     'Humidity: ${_openWeather.mainWeather.humidity}',
-//                     style: const TextStyle(fontSize: 20.0),
-//                   ),
-//                 ],
-//               ),
-//             ),
-//     );

@@ -5,6 +5,10 @@ abstract class WeatherState extends Equatable {
 
   @override
   List<Object> get props => [];
+
+  get weather => null;
+
+  get testWeather => null;
 }
 
 class WeatherInitial extends WeatherState {}
