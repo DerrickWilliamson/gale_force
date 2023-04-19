@@ -12,14 +12,6 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
       emit(WeatherLoading());
       WeatherRepo repo = WeatherRepo();
       Weather? weather = await repo.getCurrentWeather();
-      // print(weather);
-      // var city = weather.cityName;
-      // var country = weather.sysWeather.country;
-      // var temp = weather.mainWeather.temperature;
-      // var tempMax = weather.mainWeather.tempMax;
-      // var tempMin = weather.mainWeather.tempMin;
-      // var feelsLike = weather.mainWeather.feelsLike;
-      // var humidity = weather.mainWeather.humidity;
       if (weather != null) {
         emit(WeatherLoaded(weather));
       } else {
@@ -34,17 +26,28 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
 //
 // Is the mediator between the presentation layer and the data layer.  The goal is 
 // to provide a "seperation of concerns" in keeping the business logic separate from
-// the UI.  
+// the UI and the data layer.  The bloc is where all logic happens such as if the app 
+// is going to fetch or send data and what it will do with the data.
 
 
 //? How a bloc works?
 //
-//  Receives an asynchronous stream of events from the UI, maps each event to a state,
-//  queries the data layer via interacting with a repository, and emits new states
-//  back to the UI.  All events are registered via the on<SomeEvent> API which is 
-//  responsible for converting incoming events into zero or more outgoing states and
-//  calling the associated functionality for each event.  The on<SomeEvent> API replaced 
-//  the mapEventToState method.  
+//  Based off of the use of streams and event handlers.  Events from the UI (such as user 
+//  clicks or long presses) are sent to the bloc via an asynchronous stream and are added to
+//  the stream via a "sink."  The bloc then performs business logic on the event and is 
+//  responsible for querying the data layer via the repository.  Upon receiving a response 
+//  from the data layer, the bloc can perform any additional business logic on the fetched 
+//  data before sending it and an updated state back to the UI via an asynchronous stream.  
+//  All events are registered by the on<SomeEvent> function which is responsible for converting 
+//  incoming events into zero or more outgoing states and calling the associated functionality 
+//  for each event.  The on<SomeEvent> API (function) replaced the mapEventToState method.  
+//  Most events will be user generated. 
+
+
+//? What does the term "business logic" refer to in an app?
+//
+//  ...
+
 
 
 //? How to create a _bloc.dart file:
@@ -53,3 +56,11 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
 //  2.  Add on<SomeEvent> handlers for each event that emit a given state and the functionality 
 //        to be performed.
 //  3.  Use an If/Else Statement to check that the response was successful and to handle any errors.
+
+
+//? Dependency Injection (DI) and how to inject blocs into a UI?
+
+
+//? How to access updated state objects within the UI?
+//
+//  BlocProvicer, BlocBuilder, BlocListender, BlocConsumer...
