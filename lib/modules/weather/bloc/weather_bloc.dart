@@ -7,19 +7,23 @@ part 'weather_event.dart';
 part 'weather_state.dart';
 
 class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
-  WeatherBloc() : super(WeatherInitial()) {
+  WeatherBloc() : super(WeatherInitial('Currently in Initial Status')) {
     on<FetchWeather>((event, emit) async {
       emit(WeatherLoading());
       WeatherRepo repo = WeatherRepo();
       Weather? weather = await repo.getCurrentWeather();
       if (weather != null) {
         emit(WeatherLoaded(weather));
+        // print(weather);
       } else {
-        emit(WeatherError('Failed to load weather data'));
+        emit(WeatherError('Error fetching weather'));
       }
     });
   }
 }
+
+
+
 
 
 //? Purpose of the bloc:
