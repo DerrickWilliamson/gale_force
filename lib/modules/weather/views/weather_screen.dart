@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gale_force/modules/weather/bloc/weather_bloc.dart';
-import 'package:gale_force/modules/weather/repository/weather_repo.dart';
-import 'package:provider/provider.dart';
 
 class WeatherScreen extends StatefulWidget {
   const WeatherScreen({Key? key}) : super(key: key);
@@ -25,14 +23,12 @@ class _WeatherPage2State extends State<WeatherScreen> {
                 if (state is WeatherInitial) {
                   //! my issue - wasn't calling the bloc function to fetch the weather.
                   //! can do it by the context.read or Provider.of methods.
-                  // context.read<WeatherBloc>().add(FetchWeather());
-                  Provider.of<WeatherBloc>(context, listen: false)
-                      .add(FetchWeather());
-                  return CircularProgressIndicator();
+                  context.read<WeatherBloc>().add(FetchWeather());
+                  // Provider.of<WeatherBloc>(context, listen: false).add(FetchWeather());
+                  return const CircularProgressIndicator();
                 } else if (state is WeatherLoading) {
-                  return CircularProgressIndicator();
+                  return const CircularProgressIndicator();
                 } else if (state is WeatherLoaded) {
-                  print(state.currentWeather);
                   // do something with the weather data to display it.
                   // instead of writing UI here I could return a success widget.
                   // have a function for every state that returns the appropriate widget
@@ -45,9 +41,9 @@ class _WeatherPage2State extends State<WeatherScreen> {
                   return Text(
                       state.currentWeather.mainWeather.temperature.toString());
                 } else if (state is WeatherError) {
-                  return Text('An error occurred');
+                  return const Text('An error occurred');
                 } else {
-                  return Text('Unknown');
+                  return const Text('Unknown');
                 }
               }),
             ],
