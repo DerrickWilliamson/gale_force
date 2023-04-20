@@ -12,12 +12,10 @@ class WeatherRepo {
   Future<Weather> getCurrentWeather() async {
     final url = Uri.parse(finalUrl);
     final response = await http.get(url);
-    print(response.body);
 
     if (response.statusCode == 200) {
       var data = jsonDecode(response.body);
       Weather weather = Weather.fromJson(data);
-      print(weather.mainWeather.temperature);
 
       return weather;
     } else {
