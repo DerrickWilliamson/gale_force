@@ -11,7 +11,11 @@ abstract class WeatherState extends Equatable {
   get testWeather => null;
 }
 
-class WeatherInitial extends WeatherState {}
+class WeatherInitial extends WeatherState {
+  final String printMessage;
+
+  WeatherInitial(this.printMessage);
+}
 
 class WeatherLoading extends WeatherState {}
 
