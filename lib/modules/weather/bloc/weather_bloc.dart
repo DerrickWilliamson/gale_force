@@ -14,7 +14,6 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
       Weather? weather = await repo.getCurrentWeather();
       if (weather != null) {
         emit(WeatherLoaded(weather));
-        // print(weather);
       } else {
         emit(WeatherError('Error fetching weather'));
       }
