@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gale_force/modules/weather/views/radar_page.dart';
 import 'package:gale_force/modules/weather/views/search_page.dart';
 import 'package:gale_force/modules/weather/views/settings_page.dart';
 import 'package:gale_force/modules/weather/views/weather_screen.dart';
@@ -15,7 +16,7 @@ class _MainPageState extends State<MainPage> {
 
   final List<Widget> _pages = [
     const SearchPage(),
-    const WeatherScreen(),
+    const RadarPage(),
     const SettingsPage(),
   ];
 
@@ -39,8 +40,8 @@ class _MainPageState extends State<MainPage> {
             label: 'Search',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.wb_sunny),
-            label: 'Weather',
+            icon: Icon(Icons.map_outlined),
+            label: 'Radar',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.settings),
