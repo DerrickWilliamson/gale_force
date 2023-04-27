@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gale_force/modules/weather/views/weather_screen.dart';
 
 class SearchPage extends StatelessWidget {
   const SearchPage({super.key});
@@ -10,8 +11,19 @@ class SearchPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            const Text(
+              'Search for \nLocal Weather',
+              style: TextStyle(
+                fontSize: 50.0,
+                fontWeight: FontWeight.bold,
+              ),
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(
+              height: 50.0,
+            ),
             Padding(
-              padding: const EdgeInsets.all(30.0),
+              padding: const EdgeInsets.all(50.0),
               child: TextFormField(
                 decoration: const InputDecoration(
                   hintText: 'Enter a city',
