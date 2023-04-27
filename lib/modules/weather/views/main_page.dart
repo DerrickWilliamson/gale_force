@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:gale_force/modules/weather/views/radar_page.dart';
 import 'package:gale_force/modules/weather/views/search_page.dart';
 import 'package:gale_force/modules/weather/views/settings_page.dart';
-import 'package:gale_force/modules/weather/views/weather_screen.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
