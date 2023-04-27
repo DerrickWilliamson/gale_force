@@ -7,16 +7,9 @@ abstract class WeatherEvent extends Equatable {
   List<Object> get props => [];
 }
 
+class CurrentCityInputted extends WeatherEvent {}
+
 class FetchWeather extends WeatherEvent {}
-
-class OnTabSelected extends WeatherEvent {
-  final int index;
-
-  const OnTabSelected({required this.index});
-
-  @override
-  List<Object> get props => [index];
-}
 
 
 
