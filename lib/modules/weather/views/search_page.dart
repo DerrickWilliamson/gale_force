@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gale_force/modules/weather/views/weather_screen.dart';
 
 class SearchPage extends StatelessWidget {
   const SearchPage({super.key});
@@ -30,16 +31,15 @@ class SearchPage extends StatelessWidget {
               ),
             ),
             ElevatedButton(
-              onPressed: () {},
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all<Color>(
-                  Colors.blueGrey,
-                ),
-              ),
-              child: const Text('Search',
-                  style: TextStyle(
-                    fontSize: 25.0,
-                  )),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const WeatherScreen(),
+                  ),
+                );
+              },
+              child: const Text('Search', style: TextStyle(fontSize: 20.0)),
             ),
           ],
         ),

@@ -8,8 +8,8 @@ class SettingsPage extends StatelessWidget {
     return const Scaffold(
       body: Center(
         child: Text(
-          'Settings Page',
-          style: TextStyle(fontSize: 30.0, fontWeight: FontWeight.bold),
+          'Settings',
+          style: TextStyle(fontSize: 50.0, fontWeight: FontWeight.bold),
         ),
       ),
     );

@@ -13,6 +13,9 @@ class _WeatherPage2State extends State<WeatherScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Local Weather'),
+      ),
       body: BlocProvider(
         create: (context) => WeatherBloc(),
         child: Center(
