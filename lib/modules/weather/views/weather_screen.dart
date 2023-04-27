@@ -21,10 +21,8 @@ class _WeatherPage2State extends State<WeatherScreen> {
             children: [
               BlocBuilder<WeatherBloc, WeatherState>(builder: (context, state) {
                 if (state is WeatherInitial) {
-                  //! my issue - wasn't calling the bloc function to fetch the weather.
-                  //! can do it by the context.read or Provider.of methods.
                   context.read<WeatherBloc>().add(FetchWeather());
-                  // Provider.of<WeatherBloc>(context, listen: false).add(FetchWeather());
+                  // (or)  Provider.of<WeatherBloc>(context, listen: false).add(FetchWeather());
                   return const CircularProgressIndicator();
                 } else if (state is WeatherLoading) {
                   return const CircularProgressIndicator();
@@ -32,12 +30,6 @@ class _WeatherPage2State extends State<WeatherScreen> {
                   // do something with the weather data to display it.
                   // instead of writing UI here I could return a success widget.
                   // have a function for every state that returns the appropriate widget
-                  // or create new file and use Mixins to return the appropriate widget.
-                  // basically - write a widget for each state and a function that returns
-                  // the appropriate widget based on the state.
-                  //
-                  // anything below a return statement is unreachable code.
-                  // NEED TO LEARN FUNCTIONS AND MIXINS AND ENUMS!!
                   return Column(
                     children: [
                       Text(

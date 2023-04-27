@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:gale_force/modules/weather/views/weather_screen.dart';
 
 class SearchPage extends StatelessWidget {
   const SearchPage({super.key});
