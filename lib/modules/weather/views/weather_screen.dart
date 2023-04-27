@@ -38,12 +38,35 @@ class _WeatherPage2State extends State<WeatherScreen> {
                   //
                   // anything below a return statement is unreachable code.
                   // NEED TO LEARN FUNCTIONS AND MIXINS AND ENUMS!!
-                  return Text(
-                      state.currentWeather.mainWeather.temperature.toString());
+                  return Column(
+                    children: [
+                      Text(
+                        'Oklahoma City, ${state.currentWeather.sysWeather.country}:',
+                        style: const TextStyle(
+                            fontSize: 40.0, fontWeight: FontWeight.bold),
+                      ),
+                      const SizedBox(height: 20.0),
+                      Text(
+                        'Temperature: ${state.currentWeather.mainWeather.temperature}:',
+                        style: const TextStyle(fontSize: 30.0),
+                      ),
+                      const SizedBox(height: 10.0),
+                      Text(
+                        'Feels Like: ${state.currentWeather.mainWeather.feelsLike}:',
+                        style: const TextStyle(fontSize: 30.0),
+                      ),
+                      const SizedBox(height: 10.0),
+                      Text(
+                        'Humidty: ${state.currentWeather.mainWeather.humidity}:',
+                        style: const TextStyle(fontSize: 30.0),
+                      ),
+                      const SizedBox(height: 10.0),
+                    ],
+                  );
                 } else if (state is WeatherError) {
-                  return const Text('An error occurred');
+                  return const Text('An error occurred loading the weather');
                 } else {
-                  return const Text('Unknown');
+                  return const Text('Unknown error');
                 }
               }),
             ],

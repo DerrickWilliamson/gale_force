@@ -9,6 +9,15 @@ abstract class WeatherEvent extends Equatable {
 
 class FetchWeather extends WeatherEvent {}
 
+class OnTabSelected extends WeatherEvent {
+  final int index;
+
+  const OnTabSelected({required this.index});
+
+  @override
+  List<Object> get props => [index];
+}
+
 
 
 //? Purpose of the _event.dart file:
