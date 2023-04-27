@@ -22,6 +22,7 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      body: _pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         iconSize: 30.0,
         selectedItemColor: Colors.orangeAccent,
@@ -47,7 +48,6 @@ class _MainPageState extends State<MainPage> {
           ),
         ],
       ),
-      body: _pages[_selectedIndex],
     );
   }
 }
