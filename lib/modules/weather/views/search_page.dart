@@ -27,7 +27,7 @@ class SearchPage extends StatelessWidget {
               ),
               child: const Text('Search',
                   style: TextStyle(
-                    fontSize: 30.0,
+                    fontSize: 25.0,
                   )),
             ),
           ],
