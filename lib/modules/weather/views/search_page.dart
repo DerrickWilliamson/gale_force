@@ -28,13 +28,21 @@ class _SearchPageState extends State<SearchPage> {
           padding: const EdgeInsets.all(50.0),
           child: Column(
             children: [
-              const SizedBox(height: 225.0),
+              const SizedBox(height: 215.0),
               TextField(
+                style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 25.0,
+                    fontWeight: FontWeight.bold),
                 controller: _textFieldController,
                 decoration: InputDecoration(
-                  border: const OutlineInputBorder(),
+                  suffixIconColor: Colors.white,
+                  border: const OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                  ),
                   hintText: 'Enter a city',
-                  hintStyle: const TextStyle(fontSize: 20.0),
+                  hintStyle:
+                      const TextStyle(fontSize: 20.0, color: Colors.white),
                   suffixIcon: IconButton(
                       onPressed: () {
                         setState(() {
