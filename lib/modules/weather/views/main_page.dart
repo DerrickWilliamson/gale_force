@@ -24,9 +24,10 @@ class _MainPageState extends State<MainPage> {
     return Scaffold(
       body: _pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: const Color.fromARGB(255, 29, 26, 18),
         iconSize: 30.0,
-        selectedItemColor: Colors.orangeAccent,
-        unselectedItemColor: Colors.black,
+        selectedItemColor: Colors.white,
+        unselectedItemColor: Colors.blue,
         currentIndex: _selectedIndex,
         onTap: (value) {
           setState(() {
@@ -35,15 +36,24 @@ class _MainPageState extends State<MainPage> {
         },
         items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.search),
+            icon: Padding(
+              padding: EdgeInsets.only(top: 8.0),
+              child: Icon(Icons.search),
+            ),
             label: 'Search',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.map_outlined),
+            icon: Padding(
+              padding: EdgeInsets.only(top: 8.0),
+              child: Icon(Icons.map_outlined),
+            ),
             label: 'Radar',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
+            icon: Padding(
+              padding: EdgeInsets.only(top: 8.0),
+              child: Icon(Icons.settings),
+            ),
             label: 'Settings',
           ),
         ],

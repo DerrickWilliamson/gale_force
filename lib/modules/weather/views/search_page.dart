@@ -42,7 +42,7 @@ class _SearchPageState extends State<SearchPage> {
                   ),
                   hintText: 'Enter a city',
                   hintStyle:
-                      const TextStyle(fontSize: 20.0, color: Colors.white),
+                      const TextStyle(fontSize: 25.0, color: Colors.white),
                   suffixIcon: IconButton(
                       onPressed: () {
                         setState(() {
