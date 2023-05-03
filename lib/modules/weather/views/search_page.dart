@@ -50,6 +50,7 @@ class _SearchPageState extends State<SearchPage> {
                         hintStyle: const TextStyle(
                             fontSize: 25.0, color: Colors.white),
                         suffixIcon: IconButton(
+                          icon: const Icon(Icons.search, size: 35.0),
                           onPressed: () {
                             setState(() {
                               final String city = _cityController.text;
@@ -63,9 +64,9 @@ class _SearchPageState extends State<SearchPage> {
                                   builder: (context) => const WeatherScreen(),
                                 ),
                               );
+                              print('onPressed called');
                             });
                           },
-                          icon: const Icon(Icons.search, size: 35.0),
                         ),
                       ),
                     );
@@ -80,5 +81,3 @@ class _SearchPageState extends State<SearchPage> {
     );
   }
 }
-
-//! original code that worked before but was stuck in WeatherLoading state

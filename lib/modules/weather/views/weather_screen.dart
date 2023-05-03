@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gale_force/modules/weather/bloc/weather_bloc.dart';
+import 'package:gale_force/modules/weather/widgets/error_loading_widget.dart';
+import 'package:gale_force/modules/weather/widgets/loading_weather_widget.dart';
+import 'package:gale_force/modules/weather/widgets/unkown_error_widget.dart';
+import 'package:gale_force/modules/weather/widgets/weather_success_widget.dart';
 
 class WeatherScreen extends StatefulWidget {
   const WeatherScreen({Key? key}) : super(key: key);
@@ -10,6 +14,11 @@ class WeatherScreen extends StatefulWidget {
 }
 
 class _WeatherScreenState extends State<WeatherScreen> {
+  LoadingWeather loadingWeather = const LoadingWeather();
+  WeatherSuccess weatherSuccess = const WeatherSuccess();
+  ErrorLoading errorLoading = const ErrorLoading();
+  UnknownError unknownError = const UnknownError();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,62 +29,18 @@ class _WeatherScreenState extends State<WeatherScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               BlocBuilder<WeatherBloc, WeatherState>(builder: (context, state) {
-                //! Search screen only checks if state is WeatherLoaded but then routes here
-                //! where the UI goes back and checks if the state is WeatherLoading
                 if (state is WeatherLoading) {
                   print('in loading state');
-                  return const CircularProgressIndicator();
+                  return loadingWeather;
                 } else if (state is WeatherLoaded) {
                   print('in loaded state');
-                  return Column(
-                    children: [
-                      Text(
-                        'Oklahoma City, ${state.currentWeather.sysWeather.country}:',
-                        style: const TextStyle(
-                            fontSize: 40.0, fontWeight: FontWeight.bold),
-                      ),
-                      const SizedBox(height: 20.0),
-                      Text(
-                        'Temperature: ${state.currentWeather.mainWeather.temperature}:',
-                        style: const TextStyle(fontSize: 30.0),
-                      ),
-                      const SizedBox(height: 10.0),
-                      Text(
-                        'Feels Like: ${state.currentWeather.mainWeather.feelsLike}:',
-                        style: const TextStyle(fontSize: 30.0),
-                      ),
-                      const SizedBox(height: 10.0),
-                      Text(
-                        'Humidty: ${state.currentWeather.mainWeather.humidity}:',
-                        style: const TextStyle(fontSize: 30.0),
-                      ),
-                      const SizedBox(height: 10.0),
-                    ],
-                  );
+                  return weatherSuccess;
                 } else if (state is WeatherError) {
-                  return const Text('An error occurred loading the weather');
+                  print('in error state');
+                  return errorLoading;
                 } else {
-                  return Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: Colors.red,
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                      child: const Center(
-                        child: Padding(
-                          padding: EdgeInsets.all(20.0),
-                          child: Text(
-                            'Unknown Error',
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 30.0,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                      ),
-                    ),
-                  );
+                  print('in a different state');
+                  return unknownError;
                 }
               }),
             ],

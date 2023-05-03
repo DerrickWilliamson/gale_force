@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class WeatherLoaded extends StatelessWidget {
-  const WeatherLoaded({super.key});
+class UnknownError extends StatelessWidget {
+  const UnknownError({super.key});
 
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Center(
-        child: Text('Weather Success Widget',
+        child: Text('An unknown error has occured',
             style: TextStyle(fontSize: 30.0, fontWeight: FontWeight.bold)),
       ),
     );
