@@ -6,16 +6,13 @@ class WeatherScreen extends StatefulWidget {
   const WeatherScreen({Key? key}) : super(key: key);
 
   @override
-  _WeatherPage2State createState() => _WeatherPage2State();
+  _WeatherScreenState createState() => _WeatherScreenState();
 }
 
-class _WeatherPage2State extends State<WeatherScreen> {
+class _WeatherScreenState extends State<WeatherScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Local Weather'),
-      ),
       body: BlocProvider(
         create: (context) => WeatherBloc(),
         child: Center(
@@ -23,16 +20,16 @@ class _WeatherPage2State extends State<WeatherScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               BlocBuilder<WeatherBloc, WeatherState>(builder: (context, state) {
+                //! Search screen only checks if state is WeatherLoaded but then routes here
+                //! where the UI goes back and checks if the state is WeatherLoading
                 if (state is WeatherInitial) {
-                  context.read<WeatherBloc>().add(FetchWeather());
-                  // (or)  Provider.of<WeatherBloc>(context, listen: false).add(FetchWeather());
+                  print('in initial state');
                   return const CircularProgressIndicator();
                 } else if (state is WeatherLoading) {
+                  print('in loading state');
                   return const CircularProgressIndicator();
                 } else if (state is WeatherLoaded) {
-                  // do something with the weather data to display it.
-                  // instead of writing UI here I could return a success widget.
-                  // have a function for every state that returns the appropriate widget
+                  print('in loaded state');
                   return Column(
                     children: [
                       Text(

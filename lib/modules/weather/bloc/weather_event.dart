@@ -7,6 +7,11 @@ abstract class WeatherEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class CurrentCityInputted extends WeatherEvent {}
+class FetchWeather extends WeatherEvent {
+  String city;
 
-class FetchWeather extends WeatherEvent {}
+  FetchWeather({required this.city});
+
+  @override
+  List<Object> get props => [city];
+}

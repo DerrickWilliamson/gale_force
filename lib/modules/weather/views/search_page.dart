@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gale_force/modules/weather/bloc/weather_bloc.dart';
+import 'package:gale_force/modules/weather/views/weather_screen.dart';
+import 'package:provider/provider.dart';
 
 class SearchPage extends StatefulWidget {
   const SearchPage({super.key});
@@ -9,8 +12,7 @@ class SearchPage extends StatefulWidget {
 }
 
 class _SearchPageState extends State<SearchPage> {
-  // controller for the text field to receive value of user input
-  final _textFieldController = TextEditingController();
+  final TextEditingController _cityController = TextEditingController();
 
   String userInputtedCity = '';
 
@@ -29,44 +31,48 @@ class _SearchPageState extends State<SearchPage> {
           child: Column(
             children: [
               const SizedBox(height: 215.0),
-              TextField(
-                style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 25.0,
-                    fontWeight: FontWeight.bold),
-                controller: _textFieldController,
-                decoration: InputDecoration(
-                  suffixIconColor: Colors.white,
-                  border: const OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                  ),
-                  hintText: 'Enter a city',
-                  hintStyle:
-                      const TextStyle(fontSize: 25.0, color: Colors.white),
-                  suffixIcon: IconButton(
-                      onPressed: () {
-                        setState(() {
-                          userInputtedCity = _textFieldController.text;
-                          print(userInputtedCity);
-                        });
-                      },
-                      icon: const Icon(Icons.search, size: 35.0)),
+              BlocProvider(
+                create: (context) => WeatherBloc(),
+                child: BlocBuilder<WeatherBloc, WeatherState>(
+                  builder: (context, state) {
+                    return TextField(
+                      style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 25.0,
+                          fontWeight: FontWeight.bold),
+                      controller: _cityController,
+                      decoration: InputDecoration(
+                        suffixIconColor: Colors.white,
+                        border: const OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                        ),
+                        hintText: 'Enter a city',
+                        hintStyle: const TextStyle(
+                            fontSize: 25.0, color: Colors.white),
+                        suffixIcon: IconButton(
+                          onPressed: () {
+                            setState(() {
+                              final String city = _cityController.text;
+                              Provider.of<WeatherBloc>(context, listen: false)
+                                  .add(
+                                FetchWeather(city: city),
+                              );
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const WeatherScreen(),
+                                ),
+                              );
+                            });
+                          },
+                          icon: const Icon(Icons.search, size: 35.0),
+                        ),
+                      ),
+                    );
+                  },
                 ),
               ),
               const SizedBox(height: 15.0),
-              // MaterialButton(
-              //   color: Colors.blue,
-              //   onPressed: () {
-              //     setState(() {
-              //       userInputtedCity = _textFieldController.text;
-              //       print(userInputtedCity);
-              //     });
-              //   },
-              //   child: const Text(
-              //     'Search',
-              //     style: TextStyle(color: Colors.white, fontSize: 20.0),
-              //   ),
-              // ),
             ],
           ),
         ),
@@ -74,3 +80,5 @@ class _SearchPageState extends State<SearchPage> {
     );
   }
 }
+
+//! original code that worked before but was stuck in WeatherLoading state

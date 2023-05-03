@@ -6,23 +6,25 @@ import 'package:http/http.dart' as http;
 
 class WeatherRepo {
   late String openWeatherApiKey = dotenv.env['OPENWEATHER_API_KEY']!;
-  late String finalUrl =
-      'https://api.openweathermap.org/data/2.5/weather?q=Oklahoma City&appid=$openWeatherApiKey&units=imperial';
 
-  Future<Weather> getCurrentWeather() async {
-    final url = Uri.parse(finalUrl);
-    final response = await http.get(url);
-
-    if (response.statusCode == 200) {
+  Future<Weather?> getCurrentWeather({required String userCity}) async {
+    try {
+      String finalUrl =
+          'https://api.openweathermap.org/data/2.5/weather?q=$userCity&appid=$openWeatherApiKey&units=imperial';
+      final url = Uri.parse(finalUrl);
+      final response = await http.get(url);
+      print('Response status: ${response.statusCode}');
       var data = jsonDecode(response.body);
       Weather weather = Weather.fromJson(data);
-
+      print(response.body);
       return weather;
-    } else {
-      throw Exception('Failed to load current weather data');
+    } catch (e) {
+      print(e);
+      return null;
     }
   }
 }
+
 
 //? How to work with data using json_serializable?:
 //
