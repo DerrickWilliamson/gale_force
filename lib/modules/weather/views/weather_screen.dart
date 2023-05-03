@@ -22,10 +22,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
               BlocBuilder<WeatherBloc, WeatherState>(builder: (context, state) {
                 //! Search screen only checks if state is WeatherLoaded but then routes here
                 //! where the UI goes back and checks if the state is WeatherLoading
-                if (state is WeatherInitial) {
-                  print('in initial state');
-                  return const CircularProgressIndicator();
-                } else if (state is WeatherLoading) {
+                if (state is WeatherLoading) {
                   print('in loading state');
                   return const CircularProgressIndicator();
                 } else if (state is WeatherLoaded) {
@@ -58,7 +55,27 @@ class _WeatherScreenState extends State<WeatherScreen> {
                 } else if (state is WeatherError) {
                   return const Text('An error occurred loading the weather');
                 } else {
-                  return const Text('Unknown error');
+                  return Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Colors.red,
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      child: const Center(
+                        child: Padding(
+                          padding: EdgeInsets.all(20.0),
+                          child: Text(
+                            'Unknown Error',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 30.0,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ),
+                    ),
+                  );
                 }
               }),
             ],
