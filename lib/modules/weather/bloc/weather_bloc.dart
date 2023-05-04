@@ -13,13 +13,10 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
   //!       Using breakpoints, it didn't seem that it even checked the prior if statements for various states.
   WeatherBloc() : super(WeatherInitial()) {
     on<FetchWeather>((event, emit) async {
-      if (state is! WeatherLoading) {
-        emit(WeatherLoading());
-      }
+      if (state is WeatherLoading) return;
 
       WeatherRepo repo = WeatherRepo();
       Weather? weather = await repo.getCurrentWeather(userCity: event.city);
-
       if (weather != null) {
         emit(WeatherLoaded(weather));
       } else {
