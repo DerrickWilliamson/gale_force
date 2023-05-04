@@ -46,42 +46,45 @@ class _SearchPageState extends State<SearchPage> {
                     ),
                     hintText: 'Enter a city',
                     hintStyle: TextStyle(fontSize: 25.0, color: Colors.white),
-                    // suffixIcon: IconButton(
-                    //   icon: const Icon(Icons.search, size: 35.0),
-                    //   onPressed: () {
-                    //     print('onPressed called');
-                    //     final String city = _cityController.text;
-                    //     print(_cityController.text);
-                    //     // BlocProvider.of<WeatherBloc>(context)
-                    //     //     .add(FetchWeather(city: city));
-                    //   },
-                    // ),
+                    prefixIcon: Padding(
+                      padding:
+                          EdgeInsetsDirectional.only(start: 12.0, end: 12.0),
+                      child:
+                          Icon(Icons.search, size: 30.0, color: Colors.white),
+                    ),
                   ),
                 ),
                 const SizedBox(height: 15.0),
-                ElevatedButton(
-                  onPressed: () {
-                    final String city = _cityController.text;
-                    print(_cityController.text);
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const WeatherScreen(),
+                BlocBuilder<WeatherBloc, WeatherState>(
+                  builder: (context, state) {
+                    return ElevatedButton(
+                      onPressed: () {
+                        final String city = _cityController.text;
+                        BlocProvider.of<WeatherBloc>(context)
+                            .add(FetchWeather(city: city));
+                        if (state is WeatherInitial) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const WeatherScreen(),
+                            ),
+                          );
+                        }
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.white,
+                        foregroundColor: Colors.black,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        minimumSize: const Size(200.0, 50.0),
+                      ),
+                      child: const Text(
+                        'Search',
+                        style: TextStyle(fontSize: 25.0),
                       ),
                     );
                   },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.white,
-                    foregroundColor: Colors.black,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
-                    minimumSize: const Size(200.0, 50.0),
-                  ),
-                  child: const Text(
-                    'Search',
-                    style: TextStyle(fontSize: 25.0),
-                  ),
                 ),
               ],
             ),
