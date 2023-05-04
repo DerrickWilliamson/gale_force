@@ -6,8 +6,10 @@ class UnknownError extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Center(
-      child: Text('An unknown error has occured',
-          style: TextStyle(fontSize: 30.0, fontWeight: FontWeight.bold)),
+      child: Text(
+        'An unknown error has occured',
+        style: TextStyle(fontSize: 30.0, fontWeight: FontWeight.bold),
+      ),
     );
   }
 }
