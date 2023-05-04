@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gale_force/modules/weather/models/weather.dart';
 
 class WeatherSuccess extends StatelessWidget {
+  //! needed to pass in the weather model object for the UI to access and display
   const WeatherSuccess({super.key, required this.currentWeather});
 
   final Weather currentWeather;
