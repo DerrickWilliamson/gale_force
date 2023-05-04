@@ -7,7 +7,10 @@ part 'weather_event.dart';
 part 'weather_state.dart';
 
 class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
-  //! bloc emits the WeatherInitial state by default as it is passed into the super constructor
+  //! A) API key is good.  I've tried mutliple cities and am getting the JSON response to print in the console
+  //! B) Updated bloc to check if the state is not WeatherLoading before emitting WeatherLoading, it seems to be stuck in WeatherInitial
+  //! C) Once a city is inputted, my WeatherScreen immediately goes to the UnknownError state / widget
+  //!       Using breakpoints, it didn't seem that it even checked the prior if statements for various states.
   WeatherBloc() : super(WeatherInitial()) {
     on<FetchWeather>((event, emit) async {
       if (state is! WeatherLoading) {
@@ -25,8 +28,6 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
     });
   }
 }
-
-
 
 // class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
 //   WeatherBloc() : super(WeatherInitial()) {
