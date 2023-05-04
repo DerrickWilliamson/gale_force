@@ -29,9 +29,3 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
     });
   }
 }
-
-
-//! Should I have bloc methods here to be used within the bloc's on handler
-//! based upon the state?  For example, for the state of WeatherInitial should
-//! I have a function of type widget that returns WeatherInitial widget from 
-//! the widgets folder?

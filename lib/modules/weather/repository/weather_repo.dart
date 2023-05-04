@@ -26,18 +26,6 @@ class WeatherRepo {
 }
 
 
-//? How to work with data using json_serializable?:
-//
-//  1. Setup model classes using json_annotation and json_serializable
-//  2. Run build_runner command to generate code for data serialization (encode and decode)
-//  3. Set up repositories using the http package as http
-
-//? Purpose of a repository:
-//
-//  To be the "data source" for an application.  It functions to fetch, post, C.R.U.D data
-//  and to encode / decode the data (i.e. fromJson and toJson).  It also is where the model
-//  class objects are instantiated to be accessed by the UI.
-
 //? How to create a repository and fetch JSON data?
 //
 //  1. Use the Uri.parse() method to parse the passed in uri String into an uri object
