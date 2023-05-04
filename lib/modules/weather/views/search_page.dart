@@ -58,13 +58,14 @@ class _SearchPageState extends State<SearchPage> {
                                   .add(
                                 FetchWeather(city: city),
                               );
+                              print('onPressed called');
+                              //! should first check for WeatherLoaded state and then navigate to WeatherScreen
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) => const WeatherScreen(),
                                 ),
                               );
-                              print('onPressed called');
                             });
                           },
                         ),
