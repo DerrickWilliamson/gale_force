@@ -14,12 +14,6 @@ class WeatherScreen extends StatefulWidget {
 }
 
 class _WeatherScreenState extends State<WeatherScreen> {
-  //! better to build these within the BlocBuilder - better for performance
-  // LoadingWeather loadingWeather = const LoadingWeather();
-  // WeatherSuccess weatherSuccess = const WeatherSuccess();
-  // ErrorLoading errorLoading = const ErrorLoading();
-  // UnknownError unknownError = const UnknownError();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,10 +24,6 @@ class _WeatherScreenState extends State<WeatherScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               BlocBuilder<WeatherBloc, WeatherState>(builder: (context, state) {
-                //! typically, have a bloc for each view
-                //! currently sharing some states between weather screen and search screen
-                //! don't need bloc here - have it on  the search screen
-                // if were using @freezed, could use the state.when method
                 if (state is WeatherLoading) {
                   print('in loading state');
                   return LoadingWeather();
@@ -44,7 +34,8 @@ class _WeatherScreenState extends State<WeatherScreen> {
                   print('in error state');
                   return ErrorLoading();
                 } else {
-                  print('in a different state');
+                  print('in an unknown state');
+                  // onPressed immediately goes to this unknown state
                   return UnknownError();
                 }
               }),

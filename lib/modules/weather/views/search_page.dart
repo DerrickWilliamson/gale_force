@@ -60,8 +60,11 @@ class _SearchPageState extends State<SearchPage> {
                     return ElevatedButton(
                       onPressed: () {
                         final String city = _cityController.text;
-                        BlocProvider.of<WeatherBloc>(context)
+                        context
+                            .read<WeatherBloc>()
                             .add(FetchWeather(city: city));
+                        // BlocProvider.of<WeatherBloc>(context)
+                        //     .add(FetchWeather(city: city));
                         if (state is WeatherInitial) {
                           Navigator.push(
                             context,
@@ -94,20 +97,3 @@ class _SearchPageState extends State<SearchPage> {
     );
   }
 }
-
-
-// buildWhen: (previousState, state) {
-//                     return state is WeatherLoaded;
-//                   },
-//                   // Call navigateToWeatherScreen when the state is updated to WeatherLoaded.
-//                   // Note that the `state` argument here is the same instance of the `state` object in the `BlocBuilder` widget.
-//                   listener: (context, state) {
-//                     if (state is WeatherLoaded) {
-//                       Navigator.push(
-//                         context,
-//                         MaterialPageRoute(
-//                           builder: (context) => const WeatherScreen(),
-//                         ),
-//                       );
-//                     }
-//                   },
