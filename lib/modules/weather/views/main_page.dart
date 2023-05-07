@@ -38,23 +38,23 @@ class _MainPageState extends State<MainPage> {
           BottomNavigationBarItem(
             icon: Padding(
               padding: EdgeInsets.only(top: 8.0),
-              child: Icon(Icons.search),
+              child: Icon(Icons.search, size: 36.0),
             ),
-            label: 'Search',
+            label: '',
           ),
           BottomNavigationBarItem(
             icon: Padding(
               padding: EdgeInsets.only(top: 8.0),
-              child: Icon(Icons.map_outlined),
+              child: Icon(Icons.map_outlined, size: 36.0),
             ),
-            label: 'Radar',
+            label: '',
           ),
           BottomNavigationBarItem(
             icon: Padding(
               padding: EdgeInsets.only(top: 8.0),
-              child: Icon(Icons.settings),
+              child: Icon(Icons.settings, size: 36.0),
             ),
-            label: 'Settings',
+            label: '',
           ),
         ],
       ),
