@@ -10,32 +10,42 @@ class WeatherSuccess extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
+      body: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/weather_background.png'),
+            colorFilter: ColorFilter.linearToSrgbGamma(),
+            fit: BoxFit.cover,
+          ),
+        ),
         child: Center(
-          child: Column(
-            children: [
-              Text(
-                '${currentWeather.cityName}, ${currentWeather.sysWeather.country}:',
-                style: const TextStyle(
-                    fontSize: 40.0, fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(height: 20.0),
-              Text(
-                'Temperature: ${currentWeather.mainWeather.temperature}:',
-                style: const TextStyle(fontSize: 30.0),
-              ),
-              const SizedBox(height: 10.0),
-              Text(
-                'Feels Like: ${currentWeather.mainWeather.feelsLike}:',
-                style: const TextStyle(fontSize: 30.0),
-              ),
-              const SizedBox(height: 10.0),
-              Text(
-                'Humidty: ${currentWeather.mainWeather.humidity}:',
-                style: const TextStyle(fontSize: 30.0),
-              ),
-              const SizedBox(height: 10.0),
-            ],
+          child: SafeArea(
+            child: Column(
+              children: [
+                const SizedBox(height: 20.0),
+                Text(
+                  '${currentWeather.cityName}, ${currentWeather.sysWeather.country}:',
+                  style: const TextStyle(
+                      fontSize: 40.0, fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(height: 20.0),
+                Text(
+                  'Temperature: ${currentWeather.mainWeather.temperature}:',
+                  style: const TextStyle(fontSize: 30.0),
+                ),
+                const SizedBox(height: 10.0),
+                Text(
+                  'Feels Like: ${currentWeather.mainWeather.feelsLike}:',
+                  style: const TextStyle(fontSize: 30.0),
+                ),
+                const SizedBox(height: 10.0),
+                Text(
+                  'Humidty: ${currentWeather.mainWeather.humidity}:',
+                  style: const TextStyle(fontSize: 30.0),
+                ),
+                const SizedBox(height: 10.0),
+              ],
+            ),
           ),
         ),
       ),
