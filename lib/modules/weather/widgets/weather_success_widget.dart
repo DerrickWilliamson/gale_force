@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:gale_force/modules/weather/models/weather.dart';
+import 'package:gale_force/modules/weather/views/main_page.dart';
 
-class WeatherSuccess extends StatelessWidget {
-  //! needed to pass in the weather model object for the UI to access and display
+class WeatherSuccess extends StatefulWidget {
   const WeatherSuccess({super.key, required this.currentWeather});
 
   final Weather currentWeather;
 
+  @override
+  State<WeatherSuccess> createState() => _WeatherSuccessState();
+}
+
+class _WeatherSuccessState extends State<WeatherSuccess> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,26 +29,38 @@ class WeatherSuccess extends StatelessWidget {
               children: [
                 const SizedBox(height: 20.0),
                 Text(
-                  '${currentWeather.cityName}, ${currentWeather.sysWeather.country}:',
+                  '${widget.currentWeather.cityName}, ${widget.currentWeather.sysWeather.country}:',
                   style: const TextStyle(
                       fontSize: 40.0, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 20.0),
                 Text(
-                  'Temperature: ${currentWeather.mainWeather.temperature}:',
+                  'Temperature: ${widget.currentWeather.mainWeather.temperature}:',
                   style: const TextStyle(fontSize: 30.0),
                 ),
                 const SizedBox(height: 10.0),
                 Text(
-                  'Feels Like: ${currentWeather.mainWeather.feelsLike}:',
+                  'Feels Like: ${widget.currentWeather.mainWeather.feelsLike}:',
                   style: const TextStyle(fontSize: 30.0),
                 ),
                 const SizedBox(height: 10.0),
                 Text(
-                  'Humidty: ${currentWeather.mainWeather.humidity}:',
+                  'Humidty: ${widget.currentWeather.mainWeather.humidity}:',
                   style: const TextStyle(fontSize: 30.0),
                 ),
-                const SizedBox(height: 10.0),
+                const SizedBox(height: 25.0),
+                ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const MainPage()));
+                    });
+                  },
+                  child: const Text(
+                    'Search Again',
+                    style: TextStyle(fontSize: 25.0),
+                  ),
+                ),
               ],
             ),
           ),
