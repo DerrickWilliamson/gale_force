@@ -13,10 +13,10 @@ class WeatherRepo {
           'https://api.openweathermap.org/data/2.5/weather?q=$userCity&appid=$openWeatherApiKey&units=imperial';
       final url = Uri.parse(finalUrl);
       final response = await http.get(url);
-      print('Response status: ${response.statusCode}');
+
       var data = jsonDecode(response.body);
       Weather weather = Weather.fromJson(data);
-      print(response.body);
+
       return weather;
     } catch (e) {
       print(e);
