@@ -22,15 +22,17 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color.fromRGBO(22, 25, 26, 1),
       body: IndexedStack(
         index: _selectedIndex,
         children: _pages,
       ),
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: const Color.fromARGB(255, 29, 26, 18),
+        backgroundColor: const Color.fromRGBO(22, 25, 26, 1),
+        elevation: 0.0,
         iconSize: 30.0,
-        selectedItemColor: Colors.white,
-        unselectedItemColor: Colors.blue,
+        selectedItemColor: Colors.lightGreen,
+        unselectedItemColor: Colors.white,
         currentIndex: _selectedIndex,
         onTap: (value) {
           setState(() {
