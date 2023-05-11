@@ -22,7 +22,7 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromRGBO(22, 25, 26, 1),
+      // backgroundColor: const Color.fromRGBO(22, 25, 26, 1),
       body: IndexedStack(
         index: _selectedIndex,
         children: _pages,
