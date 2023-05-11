@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:gale_force/modules/weather/models/weather.dart';
 import 'package:gale_force/modules/weather/views/main_page.dart';
 
-class WeatherSuccess extends StatefulWidget {
-  const WeatherSuccess({super.key, required this.currentWeather});
+class WeatherSuccessWidget extends StatefulWidget {
+  const WeatherSuccessWidget({super.key, required this.currentWeather});
 
   final Weather currentWeather;
 
   @override
-  State<WeatherSuccess> createState() => _WeatherSuccessState();
+  State<WeatherSuccessWidget> createState() => _WeatherSuccessWidgetState();
 }
 
-class _WeatherSuccessState extends State<WeatherSuccess> {
+class _WeatherSuccessWidgetState extends State<WeatherSuccessWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

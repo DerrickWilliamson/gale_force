@@ -22,11 +22,8 @@ class _SearchPageState extends State<SearchPage> {
         create: (context) => WeatherBloc(),
         child:
             BlocBuilder<WeatherBloc, WeatherState>(builder: (context, state) {
-          //! My issue was checking the states in the wrong order - checking WeatherInitial first
-          //! which is the initial state emitted by the bloc so it was perpetually stuck on that state
           if (state is WeatherLoaded) {
-            //! also needed to update the WeatherSuccess widget to take in the currentWeather object
-            return WeatherSuccess(currentWeather: state.currentWeather);
+            return WeatherSuccessWidget(currentWeather: state.currentWeather);
           } else if (state is WeatherError) {
             return Center(
               child: Text(
