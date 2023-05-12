@@ -16,13 +16,7 @@ class _WeatherSuccessWidgetState extends State<WeatherSuccessWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('assets/weather_background.png'),
-            colorFilter: ColorFilter.linearToSrgbGamma(),
-            fit: BoxFit.cover,
-          ),
-        ),
+        color: Colors.grey[300],
         child: Center(
           child: SafeArea(
             child: Column(
@@ -56,6 +50,10 @@ class _WeatherSuccessWidgetState extends State<WeatherSuccessWidget> {
                           builder: (context) => const MainPage()));
                     });
                   },
+                  style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStateProperty.all<Color>(Colors.blueGrey),
+                  ),
                   child: const Text(
                     'Search Again',
                     style: TextStyle(fontSize: 25.0),

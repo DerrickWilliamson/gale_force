@@ -22,7 +22,6 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromRGBO(22, 25, 26, 1),
       body: IndexedStack(
         index: _selectedIndex,
         children: _pages,
@@ -31,8 +30,8 @@ class _MainPageState extends State<MainPage> {
         backgroundColor: const Color.fromRGBO(22, 25, 26, 1),
         elevation: 0.0,
         iconSize: 30.0,
-        selectedItemColor: Colors.lightGreen,
-        unselectedItemColor: Colors.white,
+        selectedItemColor: Colors.white,
+        unselectedItemColor: Colors.grey[600],
         currentIndex: _selectedIndex,
         onTap: (value) {
           setState(() {
