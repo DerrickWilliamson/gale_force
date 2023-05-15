@@ -16,7 +16,7 @@ class _WeatherInitialWidgetState extends State<WeatherInitialWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.grey[300],
+      color: const Color.fromARGB(255, 22, 25, 26),
       child: Padding(
         padding: const EdgeInsets.all(50.0),
         child: Column(
@@ -26,7 +26,7 @@ class _WeatherInitialWidgetState extends State<WeatherInitialWidget> {
             const Text(
               'Find Local Weather',
               style: TextStyle(
-                  color: Colors.black,
+                  color: Colors.white,
                   fontSize: 40.0,
                   fontWeight: FontWeight.bold),
             ),
@@ -35,11 +35,11 @@ class _WeatherInitialWidgetState extends State<WeatherInitialWidget> {
               controller: _cityController,
               decoration: InputDecoration(
                 enabledBorder: OutlineInputBorder(
-                  borderSide: const BorderSide(color: Colors.black),
+                  borderSide: const BorderSide(color: Colors.white),
                   borderRadius: BorderRadius.circular(10.0),
                 ),
                 focusedBorder: OutlineInputBorder(
-                  borderSide: const BorderSide(color: Colors.black),
+                  borderSide: const BorderSide(color: Colors.white),
                   borderRadius: BorderRadius.circular(10.0),
                 ),
                 prefixIcon: const Padding(
@@ -47,29 +47,29 @@ class _WeatherInitialWidgetState extends State<WeatherInitialWidget> {
                   child: Icon(
                     Icons.search,
                     size: 30.0,
-                    color: Colors.black,
+                    color: Colors.white,
                   ),
                 ),
                 hintText: 'Enter a City',
                 hintStyle: const TextStyle(
-                  color: Color.fromARGB(255, 68, 67, 67),
+                  color: Colors.white,
                   fontSize: 25.0,
-                  fontWeight: FontWeight.bold,
+                  fontWeight: FontWeight.w200,
                 ),
               ),
               style: const TextStyle(
-                  color: Colors.black,
+                  color: Colors.white,
                   fontSize: 25.0,
                   fontWeight: FontWeight.bold),
             ),
-            const SizedBox(height: 10.0),
+            const SizedBox(height: 18.0),
             ElevatedButton(
               onPressed: () {
                 final String city = _cityController.text;
                 context.read<WeatherBloc>().add(FetchWeather(city: city));
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.blueGrey,
+                backgroundColor: Colors.grey[600],
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10.0),
                 ),
@@ -81,6 +81,7 @@ class _WeatherInitialWidgetState extends State<WeatherInitialWidget> {
                   'Search',
                   style: TextStyle(
                     fontSize: 30.0,
+                    fontWeight: FontWeight.w500,
                     color: Colors.white,
                   ),
                 ),
