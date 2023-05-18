@@ -17,11 +17,11 @@ class _WeatherSuccessWidgetState extends State<WeatherSuccessWidget> {
     return Scaffold(
       body: Container(
         color: Colors.grey[300],
-        child: Center(
-          child: SafeArea(
+        child: SafeArea(
+          child: Center(
             child: Column(
               children: [
-                const SizedBox(height: 20.0),
+                const SizedBox(height: 100.0),
                 Text(
                   '${widget.currentWeather.cityName}, ${widget.currentWeather.sysWeather.country}:',
                   style: const TextStyle(
