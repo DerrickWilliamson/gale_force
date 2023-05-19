@@ -17,29 +17,29 @@ class _WeatherSuccessWidgetState extends State<WeatherSuccessWidget> {
     return Scaffold(
       body: Container(
         color: Colors.grey[300],
-        child: Center(
-          child: SafeArea(
+        child: SafeArea(
+          child: Center(
             child: Column(
               children: [
-                const SizedBox(height: 20.0),
+                const SizedBox(height: 100.0),
                 Text(
-                  '${widget.currentWeather.cityName}, ${widget.currentWeather.sysWeather.country}:',
+                  '${widget.currentWeather.name}, ${widget.currentWeather.sysWeather?.country}:',
                   style: const TextStyle(
                       fontSize: 40.0, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 20.0),
                 Text(
-                  'Temperature: ${widget.currentWeather.mainWeather.temperature}:',
+                  'Temperature: ${widget.currentWeather.mainWeather?.temperature}:',
                   style: const TextStyle(fontSize: 30.0),
                 ),
                 const SizedBox(height: 10.0),
                 Text(
-                  'Feels Like: ${widget.currentWeather.mainWeather.feelsLike}:',
+                  'Feels Like: ${widget.currentWeather.mainWeather?.feelsLike}:',
                   style: const TextStyle(fontSize: 30.0),
                 ),
                 const SizedBox(height: 10.0),
                 Text(
-                  'Humidty: ${widget.currentWeather.mainWeather.humidity}:',
+                  'Humidty: ${widget.currentWeather.mainWeather?.humidity}:',
                   style: const TextStyle(fontSize: 30.0),
                 ),
                 const SizedBox(height: 25.0),

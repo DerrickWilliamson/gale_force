@@ -13,6 +13,7 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
 
       WeatherRepo repo = WeatherRepo();
       Weather? weather = await repo.getCurrentWeather(userCity: event.city);
+      print(weather);
       if (weather != null) {
         emit(WeatherLoaded(weather));
       } else {
