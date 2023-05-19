@@ -22,26 +22,26 @@ class _WeatherSuccessWidgetState extends State<WeatherSuccessWidget> {
             child: Column(
               children: [
                 const SizedBox(height: 100.0),
-                Text(
-                  '${widget.currentWeather.cityName}, ${widget.currentWeather.sysWeather.country}:',
-                  style: const TextStyle(
-                      fontSize: 40.0, fontWeight: FontWeight.bold),
-                ),
-                const SizedBox(height: 20.0),
-                Text(
-                  'Temperature: ${widget.currentWeather.mainWeather.temperature}:',
-                  style: const TextStyle(fontSize: 30.0),
-                ),
-                const SizedBox(height: 10.0),
-                Text(
-                  'Feels Like: ${widget.currentWeather.mainWeather.feelsLike}:',
-                  style: const TextStyle(fontSize: 30.0),
-                ),
-                const SizedBox(height: 10.0),
-                Text(
-                  'Humidty: ${widget.currentWeather.mainWeather.humidity}:',
-                  style: const TextStyle(fontSize: 30.0),
-                ),
+                // Text(
+                //   '${widget.currentWeather.cityName}, ${widget.currentWeather.sysWeather.country}:',
+                //   style: const TextStyle(
+                //       fontSize: 40.0, fontWeight: FontWeight.bold),
+                // ),
+                // const SizedBox(height: 20.0),
+                // Text(
+                //   'Temperature: ${widget.currentWeather.mainWeather.temperature}:',
+                //   style: const TextStyle(fontSize: 30.0),
+                // ),
+                // const SizedBox(height: 10.0),
+                // Text(
+                //   'Feels Like: ${widget.currentWeather.mainWeather.feelsLike}:',
+                //   style: const TextStyle(fontSize: 30.0),
+                // ),
+                // const SizedBox(height: 10.0),
+                // Text(
+                //   'Humidty: ${widget.currentWeather.mainWeather.humidity}:',
+                //   style: const TextStyle(fontSize: 30.0),
+                // ),
                 const SizedBox(height: 25.0),
                 ElevatedButton(
                   onPressed: () {

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter/services.dart';
 import 'package:gale_force/modules/weather/bloc/weather_bloc.dart';
 
 class WeatherInitialWidget extends StatefulWidget {
@@ -33,6 +34,9 @@ class _WeatherInitialWidgetState extends State<WeatherInitialWidget> {
             const SizedBox(height: 50.0),
             TextField(
               controller: _cityController,
+              inputFormatters: [
+                FilteringTextInputFormatter.allow(RegExp(r'^[a-zA-Z\s,]+$')),
+              ],
               decoration: InputDecoration(
                 enabledBorder: OutlineInputBorder(
                   borderSide: const BorderSide(color: Colors.white),
@@ -50,7 +54,7 @@ class _WeatherInitialWidgetState extends State<WeatherInitialWidget> {
                     color: Colors.white,
                   ),
                 ),
-                hintText: 'Enter a City',
+                hintText: 'Enter a City Name',
                 hintStyle: const TextStyle(
                   color: Colors.white,
                   fontSize: 25.0,
