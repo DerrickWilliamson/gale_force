@@ -1,9 +1,9 @@
 import 'package:json_annotation/json_annotation.dart';
 
-part 'weather.g.dart';
+part 'current_weather.g.dart';
 
 @JsonSerializable()
-class Weather {
+class CurrentWeather {
   @JsonKey(name: 'coord')
   Coordinates? coordinates;
 
@@ -29,7 +29,7 @@ class Weather {
   String? name;
   int? cod;
 
-  Weather(
+  CurrentWeather(
     this.coordinates,
     this.weatherDescription,
     this.mainWeather,
@@ -43,8 +43,8 @@ class Weather {
     this.cod,
   );
 
-  factory Weather.fromJson(Map<String, dynamic> json) =>
-      _$WeatherFromJson(json);
+  factory CurrentWeather.fromJson(Map<String, dynamic> json) =>
+      _$CurrentWeatherFromJson(json);
 }
 
 // Coordinates
