@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:gale_force/modules/weather/models/weather.dart';
+import 'package:gale_force/modules/weather/models/current_weather.dart';
 import 'package:gale_force/modules/weather/repository/weather_repo.dart';
 
 part 'weather_event.dart';
@@ -12,7 +12,8 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
       if (state is WeatherLoading) return;
 
       WeatherRepo repo = WeatherRepo();
-      Weather? weather = await repo.getCurrentWeather(userCity: event.city);
+      CurrentWeather? weather =
+          await repo.getCurrentWeather(userCity: event.city);
       print(weather);
       if (weather != null) {
         emit(WeatherLoaded(weather));

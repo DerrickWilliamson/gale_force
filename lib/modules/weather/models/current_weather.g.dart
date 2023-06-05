@@ -1,12 +1,13 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'weather.dart';
+part of 'current_weather.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-Weather _$WeatherFromJson(Map<String, dynamic> json) => Weather(
+CurrentWeather _$CurrentWeatherFromJson(Map<String, dynamic> json) =>
+    CurrentWeather(
       json['coord'] == null
           ? null
           : Coordinates.fromJson(json['coord'] as Map<String, dynamic>),
@@ -32,7 +33,8 @@ Weather _$WeatherFromJson(Map<String, dynamic> json) => Weather(
       json['cod'] as int?,
     );
 
-Map<String, dynamic> _$WeatherToJson(Weather instance) => <String, dynamic>{
+Map<String, dynamic> _$CurrentWeatherToJson(CurrentWeather instance) =>
+    <String, dynamic>{
       'coord': instance.coordinates,
       'weather': instance.weatherDescription,
       'main': instance.mainWeather,
@@ -95,7 +97,7 @@ Map<String, dynamic> _$MainWeatherToJson(MainWeather instance) =>
 Wind _$WindFromJson(Map<String, dynamic> json) => Wind(
       (json['speed'] as num).toDouble(),
       json['deg'] as int,
-      (json['gust'] as num).toDouble(),
+      (json['gust'] as num?)?.toDouble(),
     );
 
 Map<String, dynamic> _$WindToJson(Wind instance) => <String, dynamic>{

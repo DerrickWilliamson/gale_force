@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:gale_force/modules/weather/models/weather.dart';
+import 'package:gale_force/modules/weather/models/current_weather.dart';
 import 'package:gale_force/modules/weather/views/main_page.dart';
 
 class WeatherSuccessWidget extends StatefulWidget {
   const WeatherSuccessWidget({super.key, required this.currentWeather});
 
-  final Weather currentWeather;
+  final CurrentWeather currentWeather;
 
   @override
   State<WeatherSuccessWidget> createState() => _WeatherSuccessWidgetState();

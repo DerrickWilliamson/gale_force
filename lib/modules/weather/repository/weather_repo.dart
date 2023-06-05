@@ -1,13 +1,13 @@
 import 'dart:convert';
 
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:gale_force/modules/weather/models/weather.dart';
+import 'package:gale_force/modules/weather/models/current_weather.dart';
 import 'package:http/http.dart' as http;
 
 class WeatherRepo {
   late String openWeatherApiKey = dotenv.env['OPENWEATHER_API_KEY']!;
 
-  Future<Weather?> getCurrentWeather({required String userCity}) async {
+  Future<CurrentWeather?> getCurrentWeather({required String userCity}) async {
     try {
       String finalUrl =
           'https://api.openweathermap.org/data/2.5/weather?q=$userCity&appid=$openWeatherApiKey&units=imperial';
@@ -15,7 +15,7 @@ class WeatherRepo {
       final response = await http.get(url);
 
       var data = jsonDecode(response.body);
-      Weather weather = Weather.fromJson(data);
+      CurrentWeather weather = CurrentWeather.fromJson(data);
 
       return weather;
     } catch (e) {
