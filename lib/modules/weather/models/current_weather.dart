@@ -101,7 +101,7 @@ class Wind {
   @JsonKey(name: 'deg')
   int degree;
   @JsonKey(name: 'gust')
-  double windGust;
+  double? windGust;
 
   Wind(this.speed, this.degree, this.windGust);
 
