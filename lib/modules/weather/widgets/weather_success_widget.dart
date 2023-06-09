@@ -23,23 +23,38 @@ class _WeatherSuccessWidgetState extends State<WeatherSuccessWidget> {
               children: [
                 const SizedBox(height: 100.0),
                 Text(
-                  '${widget.currentWeather.name}, ${widget.currentWeather.sysWeather?.country}:',
+                  '${widget.currentWeather.name}, ${widget.currentWeather.sysWeather?.country}',
                   style: const TextStyle(
                       fontSize: 40.0, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 20.0),
                 Text(
-                  'Temperature: ${widget.currentWeather.mainWeather?.temperature}:',
+                  'Temperature: ${widget.currentWeather.mainWeather?.temperature}',
                   style: const TextStyle(fontSize: 30.0),
                 ),
                 const SizedBox(height: 10.0),
                 Text(
-                  'Feels Like: ${widget.currentWeather.mainWeather?.feelsLike}:',
+                  'High: ${widget.currentWeather.mainWeather?.tempMax}',
                   style: const TextStyle(fontSize: 30.0),
                 ),
                 const SizedBox(height: 10.0),
                 Text(
-                  'Humidty: ${widget.currentWeather.mainWeather?.humidity}:',
+                  'Low: ${widget.currentWeather.mainWeather?.tempMin}',
+                  style: const TextStyle(fontSize: 30.0),
+                ),
+                const SizedBox(height: 10.0),
+                Text(
+                  'Feels Like: ${widget.currentWeather.mainWeather?.feelsLike}',
+                  style: const TextStyle(fontSize: 30.0),
+                ),
+                const SizedBox(height: 10.0),
+                Text(
+                  'Humidty: ${widget.currentWeather.mainWeather?.humidity}',
+                  style: const TextStyle(fontSize: 30.0),
+                ),
+                const SizedBox(height: 10.0),
+                Text(
+                  'Wind Speed: ${widget.currentWeather.wind?.windGust}',
                   style: const TextStyle(fontSize: 30.0),
                 ),
                 const SizedBox(height: 25.0),
